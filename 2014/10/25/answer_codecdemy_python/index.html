@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>answer of codecademy python | 爱生活 爱code</title>
+  <title>Answer Of Codecademy Python | 爱生活 爱code</title>
   <meta name="author" content="Maqianwen">
   
   <meta name="description" content="爱生活 爱code">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="answer of codecademy python"/>
+  <meta property="og:title" content="Answer Of Codecademy Python"/>
   <meta property="og:site_name" content="爱生活 爱code"/>
 
   
@@ -54,7 +54,7 @@
       
       
   
-    <h1 class="title">answer of codecademy python</h1>
+    <h1 class="title">Answer Of Codecademy Python</h1>
   
 
     </header>
@@ -126,8 +126,22 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">grades = [<span class="number">100</span>, <span class="number">100</span>, <span class="number">90</span>, <span class="number">40</span>, <span class="number">80</span>, <span class="number">100</span>, <span class="number">85</span>, <span class="number">70</span>, <span class="number">90</span>, <span class="number">65</span>, <span class="number">90</span>, <span class="number">85</span>, <span class="number">50.5</span>]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_grades</span><span class="params">(grades)</span>:</span></div><div class="line">    <span class="keyword">for</span> grade <span class="keyword">in</span> grades:</div><div class="line">        <span class="keyword">print</span> grade</div><div class="line">print_grades(grades)</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">grades_sum</span><span class="params">(grades)</span>:</span></div><div class="line">    total = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> grade <span class="keyword">in</span> grades: </div><div class="line">        total += grade</div><div class="line">    <span class="keyword">return</span> total</div><div class="line"><span class="keyword">print</span> grades_sum(grades)    </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">grades_average</span><span class="params">(grades)</span>:</span></div><div class="line">    sum_of_grades = grades_sum(grades)</div><div class="line">    average = sum_of_grades / float(len(grades))</div><div class="line">    <span class="keyword">return</span> average</div><div class="line"><span class="keyword">print</span> grades_average(grades)</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">grades_variance</span><span class="params">(scores)</span>:</span></div><div class="line">    average = grades_average(scores)</div><div class="line">    variance = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> score <span class="keyword">in</span> scores:</div><div class="line">        variance += ((average - score)**<span class="number">2</span>)</div><div class="line">    variance = variance / float( len(scores))</div><div class="line">    <span class="keyword">return</span> variance</div><div class="line"><span class="keyword">print</span> grades_variance(grades)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">grades_std_deviation</span><span class="params">(variance)</span>:</span></div><div class="line">    <span class="keyword">return</span> variance ** <span class="number">0.5</span></div><div class="line"></div><div class="line">variance = grades_variance(grades)</div><div class="line"><span class="keyword">print</span> grades_std_deviation(variance)</div></pre></td></tr></table></figure>
 
 <hr>
-<h1 id="Advanced_Topic_in_Python">Advanced Topic in Python</h1>
-<h2 id="_"> </h2>
+<h2 id="Advanced_Topic_in_Python">Advanced Topic in Python</h2>
+<h2 id="Iterators_for_Dictionaries">Iterators for Dictionaries</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">my_dict = {<span class="string">"xiaoma"</span>:<span class="number">20000</span>,<span class="string">"doubichen"</span>:<span class="number">40000</span>,<span class="string">"xiaohan"</span>:<span class="number">10000</span>}</div><div class="line"><span class="literal">print</span> my_dict.items()</div></pre></td></tr></table></figure>
+
+<h2 id="keys()_and_values()">keys() and values()</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">my_dict = {<span class="string">"xiaoma"</span>:<span class="number">20000</span>,<span class="string">"doubichen"</span>:<span class="number">40000</span>,<span class="string">"xiaohan"</span>:<span class="number">10000</span>}</div><div class="line"><span class="keyword">print</span> my_dict.<span class="keyword">keys</span>()</div><div class="line"><span class="keyword">print</span> my_dict.<span class="keyword">values</span>()</div></pre></td></tr></table></figure>
+
+<h2 id="The_‘in’_Operator">The ‘in’ Operator</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">my_dict = {<span class="string">"xiaoma"</span>:<span class="number">20000</span>,<span class="string">"doubichen"</span>:<span class="number">40000</span>,<span class="string">"xiaohan"</span>:<span class="number">10000</span>}</div><div class="line"><span class="keyword">print</span> my_dict.<span class="keyword">keys</span>()</div><div class="line"><span class="keyword">print</span> my_dict.<span class="keyword">values</span>()</div><div class="line"><span class="keyword">for</span> key in my_dict:</div><div class="line">    <span class="keyword">print</span> key,my_dict[key]</div></pre></td></tr></table></figure>
+
+<h2 id="Building_Lists">Building Lists</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">evens_to_50 = [<span class="keyword">i</span> <span class="keyword">for</span> <span class="keyword">i</span> in <span class="built_in">range</span>(<span class="number">51</span>) <span class="keyword">if</span> <span class="keyword">i</span> % <span class="number">2</span> == <span class="number">0</span>]</div><div class="line"><span class="keyword">print</span> evens_to_50</div></pre></td></tr></table></figure>
+
+<h2 id="List_Comprehension_Syntax">List Comprehension Syntax</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">doubles_by_3 = [<span class="keyword">x</span>*<span class="number">2</span> <span class="keyword">for</span> <span class="keyword">x</span> in <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">6</span>) <span class="keyword">if</span> (<span class="keyword">x</span>*<span class="number">2</span>) % <span class="number">3</span> == <span class="number">0</span>]</div><div class="line"></div><div class="line"># Complete the following <span class="built_in">line</span>. Use the <span class="built_in">line</span> above <span class="keyword">for</span> <span class="keyword">help</span>.</div><div class="line">even_squares = [<span class="keyword">x</span>**<span class="number">2</span> <span class="keyword">for</span> <span class="keyword">x</span> in <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>) <span class="keyword">if</span> <span class="keyword">x</span> % <span class="number">2</span> == <span class="number">0</span>]</div><div class="line"></div><div class="line"><span class="keyword">print</span> even_squares</div></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -197,7 +211,7 @@
       
   
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="2014/10/25/answer_codecdemy_python/" data-title="answer of codecademy python" data-url=""></div>
+  <div class="ds-thread" data-thread-key="2014/10/25/answer_codecdemy_python/" data-title="Answer Of Codecademy Python" data-url=""></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
