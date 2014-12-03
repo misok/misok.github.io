@@ -1,0 +1,416 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Misok‘s Blog</title>
+  <meta name="author" content="Maqianwen">
+  
+  <meta name="description" content="爱生活 爱code">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Misok‘s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Misok‘s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Misok‘s Blog</a></h1>
+  <h2><a href="/">To be a better man.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-12-03T14:39:47.000Z"><a href="/2014/12/03/android学习笔记/">2014-12--03</a></time>
+      
+      
+  
+    <h1 class="title"></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="android学习笔记">android学习笔记</h1>
+<p>最近课程需要，大致了解了下android，虽然刚开始被环境搞定有点崩溃，但是几天学完后发现还蛮有意思的。写了点笔记，非常粗略，自用。</p>
+<h2><a id="more"></a></h2>
+<h2 id="1-环境搭建">1.环境搭建</h2>
+<ul>
+<li>jdk（6.0以后版本）</li>
+<li>eclipse</li>
+<li>SDK</li>
+<li>ADT(提供模拟器、提供程序界面视图)</li>
+</ul>
+<hr>
+<h2 id="2-项目结构介绍">2.项目结构介绍</h2>
+<h3 id="2-1新建Android工程">2.1新建Android工程</h3>
+<h3 id="2-2工程目录介绍">2.2工程目录介绍</h3>
+<p><img src="/img/目录.png" alt="工程目录介绍"></p>
+<ul>
+<li>src:存放Java源代码</li>
+<li>gen：存放系统自动生成的配置文件</li>
+<li>andriod4.4.2：包含andriod.jar文件，这是一个Java归档文件，其中包含构建应用程序所需的所有的andriod SDK库和APIs</li>
+<li>assets：存放资源文件，（音频，图片），不会自动生成id且不会自动占用空间</li>
+<li>bin：存放应用编译后生成的可执行文件（.apk），以及应用用到被打包到apk中的资源文件</li>
+<li>libs：第三方架包</li>
+<li>res：存放应用用到 所有资源，如图片布局等等（占用apk的大小）<ol>
+<li>drawable：存放不同密度的图片资源</li>
+<li>layout：存放布局文件</li>
+<li>menu：存放菜单布局文件</li>
+<li>values：存放字符串、主题、颜色、样式等资源文件</li>
+</ol>
+</li>
+<li>AndriodManifest.xml：清单文件，配置一些与应用有关的重要信息，包含包名、权限、程序组件等等</li>
+</ul>
+<hr>
+<h2 id="3-控件概述">3.控件概述</h2>
+<ul>
+<li>TextView:显示文本框控件<ul>
+<li>id</li>
+<li>layout_width</li>
+<li>。。。</li>
+</ul>
+</li>
+<li><p>EditView：输入文本框</p>
+<ul>
+<li><p>输入类型</p>
+<pre><code>姓名：请输入姓名
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>ImageView</p>
+<ul>
+<li>src：图片内容</li>
+<li>background：图片背景</li>
+<li>手机模拟器的分辨率不一样，调用的图片是对应的分辨率。对应于res-drawable不同文件夹下的不同分辨率图片</li>
+</ul>
+</li>
+<li><p>按钮概述</p>
+<ul>
+<li>Button<pre><code><span class="bullet">1. </span>都可以作为按钮产生点击事件
+<span class="bullet">2. </span>有text属性
+</code></pre></li>
+<li>ImageButton(图片按钮)<pre><code> 1. 有src属            性
+ 2. 都有<span class="attribute">background</span>属性
+ 3. 都有明显的点击效果
+</code></pre></li>
+</ul>
+</li>
+<li>按钮监听事件<ul>
+<li>onClick</li>
+</ul>
+</li>
+</ul>
+<pre><code>          监听事件的几种实现方法
+              1. 匿名内部类 
+              2. 独立类监听
+              3. 接口方式监听
+</code></pre><ul>
+<li>AutoCompleteTextView（动态匹配输入文本）</li>
+</ul>
+<pre><code>    得设置android：<span class="variable">completetionThreshold=</span><span class="string">"2"</span>(输入多少字符以后提示)
+</code></pre><ul>
+<li>MultiAutoCompleteTextView（支持多选）</li>
+</ul>
+<pre><code>    不仅要设置上面属性，还要设置分隔符，即用什么分隔选择的多个属性
+      mtxt:<span class="keyword">set</span>Tokenizer....
+</code></pre><ul>
+<li>ToggleButton:选中和未选中<ul>
+<li>checked</li>
+<li>textoff</li>
+<li>texton</li>
+</ul>
+</li>
+<li>RadioButton</li>
+<li>RadioGroup:提供多选一的机制，一组radioButoon<ul>
+<li>orientation=vertical：垂直排布</li>
+<li>horizontal：水平排布</li>
+</ul>
+<hr>
+<h2 id="4-布局讲解">4.布局讲解</h2>
+</li>
+</ul>
+<h3 id="1-_线性布局LinearLayout">1. 线性布局LinearLayout</h3>
+<ul>
+<li>子空间以横向排布或者竖向排布</li>
+<li><p>orientation决定排布</p>
+<pre><code> <span class="number">1</span>. horizontal：水平排布
+ <span class="number">2</span>.<span class="keyword">vertical</span>：垂直排放
+</code></pre></li>
+<li><p>gravity：决定子类控件的x,y坐标为位置</p>
+<pre><code>  1. 垂直居中
+  2. 水平居中
+  3. 底部显示
+  4. 靠右
+  5. 靠左
+</code></pre><p>  注意：可以多属性连用，用|隔开</p>
+</li>
+<li>layout_gravity:指本身控件的坐标位置</li>
+<li><p>layout_weight:控件所占父容器比例</p>
+<p>   <strong>布局可以嵌套使用</strong></p>
+</li>
+</ul>
+<h3 id="2-RelativeLayout：相对布局">2.RelativeLayout：相对布局</h3>
+<ul>
+<li>它包含的子控件将以控件之间的相对位置或者子类控件相对父类容器的位置的方式排列</li>
+<li>反正就是一堆属性慢慢看</li>
+</ul>
+<h3 id="3-帧布局FrameLayout">3.帧布局FrameLayout</h3>
+<ul>
+<li>所有的元素都不能被指定放置的位置，它们统统放在这块区域的左上角，后面的子元素直接覆盖前面的子元素，将前面的子元素部分和全部遮挡</li>
+</ul>
+<h3 id="4绝对布局AbsoluteLayout">4绝对布局AbsoluteLayout</h3>
+<ul>
+<li>又可以叫坐标布局，可以直接指定子元素的绝对位置</li>
+<li>开发中很少用（适配性较差）</li>
+</ul>
+<h3 id="5TableLayout表格布局">5TableLayout表格布局</h3>
+<ul>
+<li>以行列的形式管理子控件，每一行为一个TableRow的对象，当然也可以是一个View对象</li>
+<li>layout：</li>
+</ul>
+<hr>
+<h2 id="4-认识Activity">4.认识Activity</h2>
+<ul>
+<li><p>是一个应用程序组件，提供用户与程序交的界面</p>
+<pre><code>   安卓四大组件：
+  -<span class="ruby"> <span class="constant">Activity</span>
+</span>  -<span class="ruby"> <span class="constant">Service</span>
+</span>  -<span class="ruby"> <span class="constant">BroadcastReceiver</span>
+</span>  -<span class="ruby"> <span class="constant">ContenProvider</span></span>
+</code></pre></li>
+<li><p>如何创建使用</p>
+<ul>
+<li>继承安卓的Activity类</li>
+<li>重写Oncreate方法</li>
+<li>设置显示布局</li>
+<li>在AndroidManifes文件中注册</li>
+</ul>
+</li>
+<li><p>Activity生命周期</p>
+<p> <img src="/img/生命周期.png" alt="生命周期"></p>
+</li>
+<li>Activity的四种状态<ul>
+<li>活动状态，处于界面最顶端，获取到了焦点</li>
+<li>暂停状态：（弹出一个对话框或者半透明activity时）失去焦点，但对用户可见</li>
+<li>停止状态：（按下home键或者弹出一个新的activity）完全被遮挡，但保留所有状态和成员信息</li>
+<li>非活动状态：被销毁了</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="5页面跳转">5页面跳转</h2>
+<h3 id="什么是intent">什么是intent</h3>
+<p>可以理解为一个信使；由intent来协助完成安卓各组件之间的通信</p>
+<pre><code>intent实现页面之间的跳转：
+<span class="number">1.</span>startActivity（intent）：无返回结果
+<span class="number">2.</span>startActivityForResult（intent，requestCode）：有返回结果
+   - 通过此方法启动还需要两个方法：onActivityResult（<span class="keyword">int</span> requestCode，<span class="keyword">int</span> resultCode，Intent data）
+   - setResult（resultCode，data）
+
+例如：现在我想要实现一个无返回结果的跳转，步骤如下：
+<span class="number">1.</span> 创建一个新的类（主Activity），书写Oncreate方法
+<span class="number">2.</span>给这个新的类创建一个对应的xml文件，其中包含一个<span class="keyword">button</span>
+<span class="number">3.</span>去Manifest文件注册这个类，使它成为主Activity
+<span class="number">4.</span>以同样的以上三步创建待跳转页面的Activity，注意去掉其中的主Activity属性
+<span class="number">5</span>。在主Activity里面注册<span class="keyword">button</span>的监听器（注意需要<span class="keyword">button</span>对象和监听器，用内部类方法实现监听动作）
+<span class="number">6.</span>使按下按钮就跳转到另外一个页面（首先需要一个intent（注意intent的参数，第一个为主页面，第二个为目标页面），然后需要用stratActivity（intent）方法启动）
+</code></pre><hr>
+<h2 id="app签名打包">app签名打包</h2>
+<h3 id="签名的意义：">签名的意义：</h3>
+<ul>
+<li>为了保证每个应用程序开发者的合法</li>
+<li>防止部分人通过使用相同的PackageName来混淆替换已经安装的程序，从而出现一些恶意篡改</li>
+<li>保证每次发布的版本的一致性</li>
+</ul>
+<h3 id="签名的步骤">签名的步骤</h3>
+<ul>
+<li>导出需要签名的工程</li>
+<li>在Keystore selection界面进行签名<ul>
+<li>location：表示签名文件的存放位置</li>
+<li>password：签名密码</li>
+<li>确认密码</li>
+</ul>
+</li>
+<li>下一步</li>
+<li>填写一些信息（最后一项CN）</li>
+<li>下一步：生成apk文件的位置（已签名的应用程序）</li>
+</ul>
+<hr>
+<h2 id="使用SDK开发文档">使用SDK开发文档</h2>
+<p>SDK开发文档的位置：SDK—》docs—》index.xml—》打开<br>可以下载中文版</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2014/11/29/关于学习/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+<section id="comment">
+
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2014/12/03/android学习笔记/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2014/12/03/android学习笔记/" data-title="" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"misok"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Android/">Android</a><small>1</small></li>
+  
+    <li><a href="/categories/Hexo/">Hexo</a><small>1</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>2</small></li>
+  
+    <li><a href="/categories/生活记录/">生活记录</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Hexo，gramma/" style="font-size: 15.00px;">Hexo，gramma</a><a href="/tags/codecademy，answer/" style="font-size: 15.00px;">codecademy，answer</a><a href="/tags/life/" style="font-size: 20.00px;">life</a><a href="/tags/mac，android/" style="font-size: 15.00px;">mac，android</a><a href="/tags/spider/" style="font-size: 15.00px;">spider</a><a href="/tags/博客，文章/" style="font-size: 10.00px;">博客，文章</a><a href="/tags/环境/" style="font-size: 15.00px;">环境</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://abbeychenxi.net/" title="Abbey in cradle studio">Abbey</a></li>
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Maqianwen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
