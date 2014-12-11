@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript学习笔记 | Misok‘s Blog</title>
+  <meta name="author" content="Maqianwen">
+  
+  <meta name="description" content="爱生活 爱code">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="JavaScript学习笔记"/>
+  <meta property="og:site_name" content="Misok‘s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Misok‘s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Misok‘s Blog</a></h1>
+  <h2><a href="/">To be a better man.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-12-10T16:00:00.000Z"><a href="/2014/12/11/JavaScript学习笔记/">2014-12--11</a></time>
+      
+      
+  
+    <h1 class="title">JavaScript学习笔记</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>让网页呈现各种动态效果<br>需要文本编辑器</p>
+<hr>
+<p><a id="more"></a></p>
+<h2 id="如何插入script">如何插入script</h2>
+<ol>
+<li>插入script标签</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<ol>
+<li>引用外部JS文件</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"script.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="JS在页面中的位置">JS在页面中的位置</h2>
+<ul>
+<li>javascript作为一种脚本语言可以放在html页面中任何位置，但是浏览器解释html时是按先后顺序的，所以前面的script就先被执行。比如进行页面显示初始化的js必须放在head里面，因为初始化都要求提前进行（如给页面body设置css等）；而如果是通过事件调用执行的function那么对位置没什么要求的。</li>
+</ul>
+<hr>
+<h2 id="JS语法元素">JS语法元素</h2>
+<h3 id="变量">变量</h3>
+<ul>
+<li>定义变量：  var 变量名</li>
+<li><p>变量名</p>
+<ul>
+<li>变量名必须使用字母或者下划线(_)开始</li>
+<li>变量名必须使用英文字母、数字、下划线(_)组成</li>
+<li>变量名不能使用JavaScript关键词与JavaScript保留字</li>
+</ul>
+</li>
+<li><p>先声明再赋值，变量可以重复赋值</p>
+</li>
+<li>JS中变量名区分大小写</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var mychar;</div><div class="line"><span class="variable">mychar=</span><span class="string">"javascript"</span>;</div><div class="line"><span class="variable">mychar=</span><span class="string">"hello"</span>;</div></pre></td></tr></table></figure>
+
+<h3 id="判断语句">判断语句</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">	<span class="keyword">var</span> score =<span class="number">80</span>; <span class="comment">//score变量存储成绩，初值为80</span></div><div class="line">	  </div><div class="line">	{</div><div class="line">     <span class="built_in">document</span>.write(<span class="string">"很棒，成绩及格了。"</span>);</div><div class="line">	}</div><div class="line">  </div><div class="line">	{</div><div class="line">	 <span class="built_in">document</span>.write(<span class="string">"加油，成绩不及格。"</span>);</div><div class="line">	}</div><div class="line">  <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+
+<h3 id="函数">函数</h3>
+<ul>
+<li>函数定义</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2</span><span class="params">()</span>{</span></div><div class="line">   var <span class="built_in">sum</span> = <span class="number">3</span> + <span class="number">2</span>;</div><div class="line">   alert(<span class="built_in">sum</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<ul>
+<li>函数调用</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>函数调用<span class="tag">&lt;/<span class="title">title</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">contxt</span><span class="params">()</span> //定义函数</span></div><div class="line">      {</div><div class="line">         alert(<span class="string">"哈哈，调用函数了!"</span>);</div><div class="line">      }</div><div class="line">   <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="title">form</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span>  <span class="attribute">value</span>=<span class="value">"点击我"</span> <span class="attribute">onclick</span>=<span class="value">"contxt()"</span>/&gt;</span>  </div><div class="line">   <span class="tag">&lt;/<span class="title">form</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="交互">交互</h2>
+<h3 id="输出（document-write)">输出（document.write)</h3>
+<ol>
+<li>输出字符串</li>
+<li>通过变量输入</li>
+<li>输出标签使起作用（比如换行br）</li>
+<li>输出多个内容中间用+连接</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>document.write<span class="tag">&lt;/<span class="title">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> mystr=<span class="string">"我是"</span>;</div><div class="line">    <span class="keyword">var</span> mychar=<span class="string">"JavaScript"</span>;</div><div class="line">    <span class="built_in">document</span>.write(mychar+<span class="string">"&lt;br/&gt;"</span>);</div><div class="line">    <span class="built_in">document</span>.write(mystr+mychar+<span class="string">"的忠实粉丝"</span>);</div><div class="line"></div><div class="line">  <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+
+<h3 id="警告（alert）">警告（alert）</h3>
+<p>我们在访问网站的时候，有时会突然弹出一个小窗口，上面写着一段提示信息文字。如果你不点击“确定”，就不能对网页做任何操作，这个小窗口就是使用alert实现的</p>
+<ul>
+<li>在点击对话框”确定”按钮前，不能进行任何其它操作</li>
+<li>消息对话框通常可以用于调试程序</li>
+<li>alert输出内容，可以是字符串或变量，与document.write 相似</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">   <span class="keyword">var</span> mynum = <span class="number">30</span>;</div><div class="line">   alert(<span class="string">"hello!"</span>);</div><div class="line">   alert(mynum);</div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h3 id="确认消息对话框">确认消息对话框</h3>
+<ul>
+<li>语法：var str=confirm(“提示消息”);</li>
+<li>返回值是一个布尔类型，按确认返回真，取消返回假</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> mymessage=confirm(<span class="string">"你喜欢JavaScript吗?"</span>);</div><div class="line">    <span class="keyword">if</span>(mymessage==<span class="literal">true</span>)</div><div class="line">    {   <span class="built_in">document</span>.write(<span class="string">"很好,加油!"</span>);   }</div><div class="line">    <span class="keyword">else</span></div><div class="line">    {  <span class="built_in">document</span>.write(<span class="string">"JS功能强大，要学习噢!"</span>);   }</div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h3 id="prompt消息对话框">prompt消息对话框</h3>
+<p>prompt弹出消息对话框,通常用于询问一些需要与用户交互的信息。弹出消息对话框（包含一个确定按钮、取消按钮与一个文本输入框）。</p>
+<ul>
+<li>语法：prompt(str1, str2);</li>
+<li>str1: 要显示在消息对话框中的文本，不可修改<br>str2：文本框中的内容，可以修改</li>
+<li>点击确定按钮，文本框中的内容将作为函数返回值<br>点击取消按钮，将返回null</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=utf-8"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>prompt<span class="tag">&lt;/<span class="title">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">rec</span><span class="params">()</span></span>{</div><div class="line">	<span class="keyword">var</span> score; <span class="comment">//score变量，用来存储用户输入的成绩值。</span></div><div class="line">	score =prompt(<span class="string">"请输入你的成绩"</span>);</div><div class="line">	<span class="keyword">if</span>(score&gt;=<span class="number">90</span>)</div><div class="line">	{</div><div class="line">	   <span class="built_in">document</span>.write(<span class="string">"你很棒!"</span>);</div><div class="line">	}</div><div class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(score&gt;=<span class="number">75</span>)</div><div class="line">    {</div><div class="line">	   <span class="built_in">document</span>.write(<span class="string">"不错吆!"</span>);</div><div class="line">	}</div><div class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(score&gt;=<span class="number">60</span>)</div><div class="line">    {</div><div class="line">	   <span class="built_in">document</span>.write(<span class="string">"要加油!"</span>);</div><div class="line">    }</div><div class="line">    <span class="keyword">else</span></div><div class="line">	{</div><div class="line">       <span class="built_in">document</span>.write(<span class="string">"要努力了!"</span>);</div><div class="line">	}</div><div class="line">  }</div><div class="line">  <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">name</span>=<span class="value">"button"</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">onClick</span>=<span class="value">"rec()"</span> <span class="attribute">value</span>=<span class="value">"点击我，对成绩做评价!"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h3 id="打开新窗口">打开新窗口</h3>
+<p>打开一个新窗口</p>
+<ul>
+<li>语法：window.open(<url>, &lt;窗口名称&gt;, &lt;参数字符串&gt;)</url></li>
+<li>URL：打开窗口的网址或路径。</li>
+<li>窗口名称：被打开窗口的名称。可以是”_top”、”_blank”、”_selft”等。</li>
+<li>参数字符串：设置窗口参数，各参数用逗号隔开。</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//打开http://www.imooc.com网站，大小为300px * 200px，无菜//单，无工具栏，无状态栏，有滚动条窗口：</div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"> </span></div><div class="line"><span class="built_in">window</span>.open(<span class="string">'http://www.imooc.com'</span>,<span class="string">'_blank'</span>,<span class="string">'width=300,height=200,menubar=no,toolbar=no,status=no,scrollbars=yes'</span>)</div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p><strong>参数之间逗号及等号前后有空格，该字符串无效，只有删除空格才能正常运行</strong></p>
+<h3 id="关闭窗口">关闭窗口</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">   <span class="keyword">var</span> mywin=<span class="built_in">window</span>.open(<span class="string">'http://www.imooc.com'</span>); <span class="comment">//将新打的窗口对象，存储在变量mywin中</span></div><div class="line">   mywin.close();</div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+
+<h3 id="阶段练习">阶段练习</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/*1、新窗口打开时弹出确认框，是否打开</div><div class="line"></div><div class="line">提示: 使用 if 判断确认框是否点击了确定，如点击弹出输入对话框，否则没有任何操作。</div><div class="line">2、通过输入对话框，确定打开的网址，默认为 http：//www.imooc.com/</div><div class="line"></div><div class="line">3、打开的窗口要求，宽400像素，高500像素，无菜单栏、无工具栏。*/</div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span> new document <span class="tag">&lt;/<span class="title">title</span>&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=gbk"</span>/&gt;</span>   </div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">openWindow</span><span class="params">()</span></span>{</div><div class="line">        <span class="keyword">var</span> ifopen=confirm(<span class="string">"是否打开窗口"</span>);</div><div class="line">        <span class="keyword">if</span>(ifopen==<span class="literal">true</span>){</div><div class="line">            <span class="keyword">var</span> httpaddress=prompt(<span class="string">"请输入需要打开的网址"</span>,<span class="string">"http://imooc.com"</span>);</div><div class="line">            }</div><div class="line">            </div><div class="line">        <span class="built_in">window</span>.open(<span class="string">'httpaddress'</span>,<span class="string">'_blank'</span>,<span class="string">'width=400,height=500,menubar=no,toolbar=no'</span>)</div><div class="line">        </div><div class="line">        } </div><div class="line">  <span class="tag">&lt;/<span class="title">script</span>&gt;</span> </div><div class="line"> <span class="tag">&lt;/<span class="title">head</span>&gt;</span> </div><div class="line"> <span class="tag">&lt;<span class="title">body</span>&gt;</span> </div><div class="line">	  <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"新窗口打开网站"</span> <span class="attribute">onclick</span>=<span class="value">"openWindow()"</span> /&gt;</span> </div><div class="line"> <span class="tag">&lt;/<span class="title">body</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="认识DOM">认识DOM</h2>
+<ul>
+<li>文档对象模型DOM（Document Object Model）定义访问和处理HTML文档的标准方法。DOM 将HTML文档呈现为带有元素、属性和文本的树结构（节点树）</li>
+</ul>
+<h3 id="结构">结构</h3>
+<ul>
+<li>元素节点：html、body、p等等，即标签</li>
+<li>文本节点：向用户展示的内容</li>
+<li>属性节点：元素的属性</li>
+</ul>
+<h3 id="通过ID获取元素">通过ID获取元素</h3>
+<ul>
+<li>学过HTML/CSS样式，都知道，网页由标签将信息组织起来，而标签的id属性值是唯一的，就像是每人有一个身份证号一样，只要通过身份证号就可以找到相对应的人。那么在网页中，我们通过id先找到标签，然后进行操作</li>
+<li>语法： document.getElementById(“id”) </li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"con"</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="keyword">var</span> mychar=<span class="built_in">document</span>.getElementById(<span class="string">"con"</span>);</div><div class="line">  <span class="built_in">document</span>.write(<span class="string">"结果:"</span>+mychar); <span class="comment">//输出获取的P标签</span></div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h3 id="innerHTML属性">innerHTML属性</h3>
+<ul>
+<li>用于获取或替换 HTML 元素的内容</li>
+<li>语法：Object.innerHTML</li>
+<li>Object是获取的元素对象，如通过document.getElementById(“ID”)获取的元素</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">h2</span> <span class="attribute">id</span>=<span class="value">"con"</span>&gt;</span>javascript<span class="tag">&lt;/<span class="title">H2</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span> JavaScript是一种基于对象、事件驱动的简单脚本语言，嵌入在HTML文档中，由浏览器负责解释和执行，在网页上产生动态的显示效果并实现与用户交互功能。<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="keyword">var</span> mychar=<span class="built_in">document</span>.getElementById(<span class="string">"con"</span>);           ;</div><div class="line">  <span class="built_in">document</span>.write(<span class="string">"原标题:"</span>+mychar.innerHTML+<span class="string">"&lt;br&gt;"</span>); <span class="comment">//输出原h2标签内容</span></div><div class="line">  mychar.innerHTML=<span class="string">"Hello World"</span>;</div><div class="line">  <span class="built_in">document</span>.write(<span class="string">"修改后的标题:"</span>+mychar.innerHTML); <span class="comment">//输出修改后h2标签内容</span></div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h3 id="改变HTML样式">改变HTML样式</h3>
+<ul>
+<li>语法：Object.style.property=new style;</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">h2</span> <span class="attribute">id</span>=<span class="value">"con"</span>&gt;</span>I love JavaScript<span class="tag">&lt;/<span class="title">H2</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span>&gt;</span> JavaScript使网页显示动态效果并实现与用户交互功能。<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> mychar= <span class="built_in">document</span>.getElementById(<span class="string">"con"</span>);</div><div class="line">    mychar.style.color=<span class="string">"red"</span>;</div><div class="line">    mychar.style.backgroundColor=<span class="string">"#ccc"</span>;</div><div class="line">    mychar.style.width=<span class="string">"300px"</span>; </div><div class="line">    <span class="keyword">var</span> str=<span class="built_in">document</span>.getElementById(<span class="string">"p1"</span>);</div><div class="line">    str.style.color=<span class="string">"blue"</span>;</div><div class="line">    str.style.backgroundColor=<span class="string">"#000"</span>;</div><div class="line">    <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h3 id="显示和隐藏（display属性）">显示和隐藏（display属性）</h3>
+<ul>
+<li>网页中经常会看到显示和隐藏的效果，可通过display属性来设置。</li>
+<li>语法：Object.style.display = value</li>
+<li>value取值为none：隐藏  block:显示为块</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>display<span class="tag">&lt;/<span class="title">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"> </span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">hidetext</span><span class="params">()</span>  </span></div><div class="line">		{  </div><div class="line">		<span class="keyword">var</span> mychar = <span class="built_in">document</span>.getElementById(<span class="string">"con"</span>);</div><div class="line">        mychar.style.display=<span class="string">"none"</span>;</div><div class="line">		}  </div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">showtext</span><span class="params">()</span>  </span></div><div class="line">		{  </div><div class="line">		<span class="keyword">var</span> mychar = <span class="built_in">document</span>.getElementById(<span class="string">"con"</span>);</div><div class="line">        mychar.style.display=<span class="string">"block"</span>;</div><div class="line">		}</div><div class="line">    <span class="tag">&lt;/<span class="title">script</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"con"</span>&gt;</span>做为一个Web开发师来说，如果你想提供漂亮的网页、令用户满意的上网体验，JavaScript是必不可少的工具。<span class="tag">&lt;/<span class="title">p</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="title">form</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">onclick</span>=<span class="value">"hidetext()"</span> <span class="attribute">value</span>=<span class="value">"隐藏内容"</span> /&gt;</span> </div><div class="line">       <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">onclick</span>=<span class="value">"showtext()"</span> <span class="attribute">value</span>=<span class="value">"显示内容"</span> /&gt;</span> </div><div class="line">    <span class="tag">&lt;/<span class="title">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h3 id="className控制类名属性">className控制类名属性</h3>
+<ul>
+<li>className 属性设置或返回元素的class 属性。</li>
+<li>语法：object.className = classname</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>className属性<span class="tag">&lt;/<span class="title">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span></div><div class="line">    <span class="tag">body</span><span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">16px</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.one</span><span class="rules">{</span></div><div class="line">		<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid <span class="hexcolor">#eee</span></span></span>;</div><div class="line">		<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">230px</span></span></span>;</div><div class="line">		<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">50px</span></span></span>;</div><div class="line">		<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#ccc</span></span></span>;</div><div class="line">		<span class="rule"><span class="attribute">color</span>:<span class="value">red</span></span>;</div><div class="line">    <span class="rule">}</span></div><div class="line">	<span class="class">.two</span><span class="rules">{</span></div><div class="line">		<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid <span class="hexcolor">#ccc</span></span></span>;</div><div class="line">		<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">230px</span></span></span>;</div><div class="line">		<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">50px</span></span></span>;</div><div class="line">		<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#9CF</span></span></span>;</div><div class="line">		<span class="rule"><span class="attribute">color</span>:<span class="value">blue</span></span>;</div><div class="line">	<span class="rule">}</span></div><div class="line">	<span class="tag">&lt;/<span class="title">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p1"</span> &gt;</span> JavaScript使网页显示动态效果并实现与用户交互功能。<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"添加样式"</span> <span class="attribute">onclick</span>=<span class="value">"add()"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"p2"</span> <span class="attribute">class</span>=<span class="value">"one"</span>&gt;</span>JavaScript使网页显示动态效果并实现与用户交互功能。<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"更改外观"</span> <span class="attribute">onclick</span>=<span class="value">"modify()"</span>/&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">	   <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">()</span></span>{</div><div class="line">	      <span class="keyword">var</span> p1 = <span class="built_in">document</span>.getElementById(<span class="string">"p1"</span>);</div><div class="line">	      p1.className=<span class="string">"one"</span>;</div><div class="line">	   }</div><div class="line">	   <span class="function"><span class="keyword">function</span> <span class="title">modify</span><span class="params">()</span></span>{</div><div class="line">	      <span class="keyword">var</span> p2 = <span class="built_in">document</span>.getElementById(<span class="string">"p2"</span>);</div><div class="line">	      p2.className=<span class="string">"two"</span>;</div><div class="line">	   }</div><div class="line">	<span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div></pre></td></tr></table></figure>
+
+
+<h3 id="编程练习">编程练习</h3>
+<p>，请编写”改变颜色”、”改变宽高”、”隐藏内容”、”显示内容”、”取消设置”的函数，点击相应按钮执行相应操作，点击”取消设置”按钮后，提示是否取消设置，如是执行操作，否则不做操作。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">Content</span>=<span class="value">"text/html; charset=utf-8"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>javascript<span class="tag">&lt;/<span class="title">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line">        <span class="tag">body</span><span class="rules">{<span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12px</span></span></span>;<span class="rule">}</span></span></div><div class="line">        <span class="id">#txt</span><span class="rules">{</span></div><div class="line">            <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">400px</span></span></span>;</div><div class="line">            <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">600px</span></span></span>;</div><div class="line">            <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="hexcolor">#333</span> solid <span class="number">1px</span></span></span>;</div><div class="line">            <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">5px</span></span></span>;<span class="rule">}</span></div><div class="line">        <span class="tag">p</span><span class="rules">{</span></div><div class="line">            <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">18px</span></span></span>;</div><div class="line">            <span class="rule"><span class="attribute">text-indent</span>:<span class="value"><span class="number">2em</span></span></span>;<span class="rule">}</span></div><div class="line">    <span class="tag">&lt;/<span class="title">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">h2</span> <span class="attribute">id</span>=<span class="value">"con"</span>&gt;</span>JavaScript课程<span class="tag">&lt;/<span class="title">H2</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"txt"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">h5</span>&gt;</span>JavaScript为网页添加动态效果并实现与用户交互的功能。<span class="tag">&lt;/<span class="title">h5</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span>1. JavaScript入门篇，让不懂JS的你，快速了解JS。<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span>2. JavaScript进阶篇，让你掌握JS的基础语法、函数、数组、事件、内置对象、BOM浏览器、DOM操作。<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span>3. 学完以上两门基础课后，在深入学习JavaScript的变量作用域、事件、对象、运动、cookie、正则表达式、ajax等课程。<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="title">form</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"改变颜色"</span> <span class="attribute">onClick</span>=<span class="value">"changecolor()"</span> &gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"改变宽高"</span> <span class="attribute">onClick</span>=<span class="value">"changesize()"</span> &gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"隐藏内容"</span> <span class="attribute">onClick</span>=<span class="value">"hind()"</span> &gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"显示内容"</span> <span class="attribute">onClick</span>=<span class="value">"perform()"</span> &gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"取消设置"</span> <span class="attribute">onClick</span>=<span class="value">"quxiao()"</span> &gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">form</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="comment">//定义"改变颜色"的函数</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">changecolor</span><span class="params">()</span></span>{</div><div class="line">            <span class="keyword">var</span> mystr=<span class="built_in">document</span>.getElementById(<span class="string">"con"</span>);</div><div class="line">            <span class="keyword">var</span> str=<span class="built_in">document</span>.getElementById(<span class="string">"txt"</span>);</div><div class="line">            mystr.style.color=<span class="string">"red"</span>;</div><div class="line">            mystr.style.backgroundColor=<span class="string">"#333"</span>;</div><div class="line">            str.style.color=<span class="string">"blue"</span>;</div><div class="line">            str.style.backgroundColor=<span class="string">"#ccc"</span>;</div><div class="line">        }</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">//定义"改变宽高"的函数</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">changesize</span><span class="params">()</span></span>{</div><div class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"con"</span>).style.width=<span class="string">"600px"</span>;</div><div class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"txt"</span>).style.width=<span class="string">"600px"</span>;</div><div class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"con"</span>).style.height=<span class="string">"200px"</span>;</div><div class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"txt"</span>).style.height=<span class="string">"800px"</span>;</div><div class="line"></div><div class="line">        }</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">//定义"隐藏内容"的函数</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">hind</span><span class="params">()</span></span>{</div><div class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"con"</span>).style.display=<span class="string">"none"</span>;</div><div class="line">            <span class="keyword">var</span> mychar = <span class="built_in">document</span>.getElementById(<span class="string">"txt"</span>);</div><div class="line">            mychar.style.display=<span class="string">"none"</span>;</div><div class="line"></div><div class="line">        }</div><div class="line"></div><div class="line">    <span class="comment">//定义"显示内容"的函数</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">perform</span><span class="params">()</span></span>{</div><div class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"con"</span>).style.display=<span class="string">"block"</span>;</div><div class="line">            <span class="keyword">var</span> mychar = <span class="built_in">document</span>.getElementById(<span class="string">"txt"</span>);</div><div class="line">            mychar.style.display=<span class="string">"block"</span>;</div><div class="line">        }</div><div class="line"></div><div class="line">    <span class="comment">//定义"取消设置"的函数</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">quxiao</span><span class="params">()</span></span>{</div><div class="line">            <span class="keyword">var</span> char=confirm(<span class="string">"是否取消设置"</span>);</div><div class="line">            <span class="keyword">if</span>(char==<span class="literal">true</span>){</div><div class="line">                <span class="built_in">document</span>.getElementById(<span class="string">"con"</span>).setAttribute(<span class="string">'style'</span>,<span class="string">''</span>);</div><div class="line">                <span class="built_in">document</span>.getElementById(<span class="string">"txt"</span>).setAttribute(<span class="string">'style'</span>,<span class="string">''</span>);</div><div class="line"></div><div class="line">        }</div><div class="line">    }</div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/前端开发/">前端开发</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/JavaScript-JS/">JavaScript JS</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+ <nav id="pagination" >
+    
+    <a href="/2014/12/11/前端开发学习笔记/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2014/12/04/android学习笔记/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+<section id="comment">
+
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2014/12/11/JavaScript学习笔记/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2014/12/11/JavaScript学习笔记/" data-title="JavaScript学习笔记" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"misok"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Android/">Android</a><small>2</small></li>
+  
+    <li><a href="/categories/Hexo/">Hexo</a><small>1</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>2</small></li>
+  
+    <li><a href="/categories/前端开发/">前端开发</a><small>2</small></li>
+  
+    <li><a href="/categories/生活记录/">生活记录</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/HTML5-CSS/" style="font-size: 10.00px;">HTML5 CSS</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/JavaScript-JS/" style="font-size: 10.00px;">JavaScript JS</a><a href="/tags/android/" style="font-size: 10.00px;">android</a><a href="/tags/codecademy，answer/" style="font-size: 10.00px;">codecademy，answer</a><a href="/tags/life/" style="font-size: 20.00px;">life</a><a href="/tags/mac，android/" style="font-size: 10.00px;">mac，android</a><a href="/tags/spider/" style="font-size: 10.00px;">spider</a><a href="/tags/环境/" style="font-size: 10.00px;">环境</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://abbeychenxi.net/" title="Abbey in cradle studio">Abbey</a></li>
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Maqianwen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
