@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>犀牛书思考笔记（一） | Misok‘s Blog</title>
+  <meta name="author" content="Maqianwen">
+  
+  <meta name="description" content="爱生活 爱code">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="犀牛书思考笔记（一）"/>
+  <meta property="og:site_name" content="Misok‘s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Misok‘s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Misok‘s Blog</a></h1>
+  <h2><a href="/">To be a better man.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-12-29T16:00:00.000Z"><a href="/2014/12/30/"犀牛书"思考笔记/">2014-12--30</a></time>
+      
+      
+  
+    <h1 class="title">犀牛书思考笔记（一）</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>写作目的：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">重新阅读了JavaScript经典书籍---《JavaScript权威指南》，有很多收获。纪录在此。</div><div class="line">内容可能包括：</div><div class="line">-<span class="ruby"> 与其他语言的一些重要区别</span></div><div class="line">-<span class="ruby"> 需要注意的一些细节问题</span></div><div class="line">-<span class="ruby"> 还不太理解的地方</span></div></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="chapter2">chapter2</h2>
+<hr>
+<h4 id="区分大小写">区分大小写</h4>
+<p>如题，JS是区分大小写的</p>
+<hr>
+<p>如果你跟我一样，是先开始学习HTML的，再写JS的，那你肯定遇到过下面这种情况：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"button"</span> onClick=<span class="string">"f()"</span> /&gt;</div></pre></td></tr></table></figure>
+
+<p>这段代码如果放在HTML的非JS模块中，是正确的，但是如果放在JS模块中会报错。<br>这是因为：</p>
+<ul>
+<li>HTML不区分大小写，而且很多人习惯上写成onClick</li>
+<li>但是JS区分大小写，必须写成小写才正确，如果上述语句放在JS模块中，那记得写成onclick</li>
+</ul>
+<p><strong>博主在某在线网站写代码的时候就不知道为啥一会大写一会小写，现在也是终于明白了</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">建议：</div><div class="line">-<span class="ruby"> 如果真要学习一门语言，视频和在线教程都只能是辅助。还是要从一本经典的书开始学起。这样对语言的细节才能把握的更好</span></div><div class="line">-<span class="ruby"> 学了这么久，前端语言比起<span class="constant">Java</span>，<span class="constant">C</span>，<span class="constant">C</span>++这些编程语言更加复杂，由于<span class="constant">HTML</span>的“宽容性”以及浏览器兼容性问题，我觉得平时就要积累这些不同点和细节问题。</span></div></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="可选的分号">可选的分号</h4>
+<p>JS规定：语句用分号来结束，但如果语句各自独占一行，分号可以省略</p>
+<ul>
+<li>这个和编程风格有关，但是我个人喜欢全部写上分号（可能是最初学习C的时候保留下来的习惯）而且我也建议这样做，因为如果省略了分号有时候会出一些逻辑错误（就像书上说的）</li>
+</ul>
+<hr>
+<h2 id="chapter3">chapter3</h2>
+<p>这一章有很多细碎的知识，且有几个概念与以前学过的编程语言有很大不同。</p>
+<hr>
+<h4 id="数据类型">数据类型</h4>
+<p>JS的数据类型分为两类：原始类型和对象类型，首先我们先看第一类</p>
+<h5 id="原始类型">原始类型</h5>
+<p>原始类型包括：数字、字符串、布尔值、null、unfefined</p>
+<ul>
+<li>数字<ul>
+<li>JS中的所有数字均用浮点数值表示（IEEE 754：一种二进制表示法，可以精确的表示分数）<ul>
+<li>这样做有一个问题，看下面代码</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var <span class="variable">x=</span>.<span class="number">3</span> - .<span class="number">2</span>;</div><div class="line">var <span class="variable">y=</span>.<span class="number">2</span> - .<span class="number">1</span>;</div><div class="line"><span class="variable">x =</span>= y</div><div class="line">结果：flase</div></pre></td></tr></table></figure>
+
+<p>所以我们应该注意：这会带来舍入误差</p>
+<pre><code><span class="deletion">- 也有一个好处,可以正确计算除法</span>
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(<span class="number">5</span>/<span class="number">2</span>);</div><div class="line"><span class="literal">result</span>:<span class="number">2</span>.<span class="number">5</span></div></pre></td></tr></table></figure>
+
+<pre><code>上述代码如果在Java中，两个数都是<span class="keyword">Int</span>型的话，结果是<span class="number">2</span>
+</code></pre><ul>
+<li>全局变量NaN：表示非数字值<ul>
+<li>它和任何值都不相等，包括自身<br>所以我们判断一个值是不是数字的时候要用下述两个方法：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x!=x  <span class="comment">//当且仅当x为NaN的时候，表达式值为真</span></div><div class="line"><span class="built_in">isNaN</span>() <span class="comment">//若参数为非数字或者NaN时返回真</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li><p>字符串</p>
+<ul>
+<li>JS的内置功能之一是字符串连接，+ 如果用于字符串，则表示字符串连接</li>
+<li>在JS中，字符串可以当做只读数组，这个很方便，我们可以这样来访问字符串任意位置的元素：s[i]</li>
+</ul>
+</li>
+<li><p>布尔值</p>
+<ul>
+<li>任意JS的值都可以转换为布尔值<ul>
+<li>undefined\null\0-0\NaN\’’\这六种值转化为false</li>
+<li>其余全部转化为true</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>JS中的类型转换很复杂，要单独拿出来说，这里先不写</strong></p>
+<h5 id="对象类型">对象类型</h5>
+<p>除了原始数据类型，其他的都是对象类型</p>
+<ul>
+<li>对象是“命名值”的集合</li>
+<li>JS中类的概念可以看做是对象类型的子类型</li>
+<li>所以JS中还定义了一些特殊的类<ul>
+<li>数组类（注：只有这个是表示带编号的值的有序集合）</li>
+<li>函数类</li>
+<li>日期类</li>
+<li>正则类</li>
+<li>错误类</li>
+</ul>
+</li>
+</ul>
+<h5 id="类型的其他分法">类型的其他分法</h5>
+<ol>
+<li>可变类型和不可变类型<ul>
+<li>可变类型：值可修改<ul>
+<li>对象</li>
+<li>数组</li>
+</ul>
+</li>
+<li>不可变类型：数字、布尔、null、undefined、字符串</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注：不可变类型的值无论何时都不能被改变，字符串的一些改变内容的方法返回的都是新的字符串，原来的字符串还是没有改变</div></pre></td></tr></table></figure>
+
+<ol>
+<li>拥有方法的类型和不能拥有方法的类型<br>这里涉及到一个很大的不同之处，按理，只有对象才能拥有方法，但在JS中，数字、字符串、布尔值也拥有自己的方法，这个叫包装对象<ul>
+<li>拥有方法的类型：<ul>
+<li>对象</li>
+<li>数字</li>
+<li>字符串</li>
+<li>布尔值<br>看下面的代码：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">"test"</span>;</div><div class="line">s.len = <span class="number">4</span>;</div><div class="line"><span class="keyword">var</span> t= s.len;</div><div class="line"><span class="literal">result</span>:t= undefined</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">为什么会这样呢，这个就叫包装对象。只要引用了字符串的属性，JS就会调用<span class="keyword">new</span> Stirng(<span class="keyword">s</span>)转换成对象，这个对象继承了字符串的方法，并被用来处理属性的引用。一旦属性引用结束，新建对象就会销毁。所以上面代码中，第二行代码创建一个临时字符串对象，并给其<span class="built_in">len</span>属性赋值为<span class="number">4</span>，随即销毁了这个对象。而第三行通过原始的字符串值创建了一个新的对象<span class="keyword">t</span>，属性的值还没有定义所以自然就是undefined。</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">所以，在读取字符串、数字、布尔值的属性或方法的时候，表现的像对象一样，但是如果你试图给其属性赋值，则会忽略这个操作，修改只是发生在临时对象身上，而临时对象不会保留。可以通过<span class="built_in">String</span>()\<span class="built_in">Number</span>()\<span class="built_in">Boolean</span>()显式创建包装对象。且===将原始值和包装对象视为不等，因为他们类型不同</div></pre></td></tr></table></figure>
+
+<ul>
+<li>不拥有方法的类型<ul>
+<li>null</li>
+<li>undefined</li>
+</ul>
+</li>
+</ul>
+<h5 id="JS中的变量无类型">JS中的变量无类型</h5>
+<p>你可能注意到了，只要用var关键字定义，你要它是什么类型它就是什么类型。</p>
+<p><strong>null和undefined比较特殊。单独再说</strong></p>
+<h4 id="变量作用域">变量作用域</h4>
+<ol>
+<li>JS中的变量作用域也比较特殊，它没有所谓块级作用域，代替为函数作用域</li>
+</ol>
+<ul>
+<li>函数作用域：在函数内声明的所有变量在函数体内始终是可见的，意味着变量在声明之前甚至已经可用（称为声明提前）</li>
+<li>将函数内的声明提前至函数体顶部，同时变量初始化留在原来的位置</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scope = <span class="string">"global"</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>{</div><div class="line">    <span class="built_in">console</span>.log(scope);   <span class="comment">//输出undefined</span></div><div class="line">    <span class="keyword">var</span> scope = <span class="string">"local"</span>;</div><div class="line">    <span class="built_in">console</span>.log(scope);  <span class="comment">//输出local</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<ol>
+<li>另外一点比较特殊的是，JS声明一个全局变量时，实际上是定义了全局对象的一个属性。如果这个变量你用了关键字var声明，那么这个变量无法通过delete运算符删除。如果你给一个未声明的变量赋值，则JS会自动创建一个全局变量，且这个变量可以通过delete删除。</li>
+<li>JS允许使用this关键字来引用全局变量</li>
+</ol>
+<hr>
+<h2 id="chapter4">chapter4</h2>
+<p>这一章讲的是表达式和运算符，还是从一些不同角度来说明</p>
+<hr>
+<h4 id="属性访问">属性访问</h4>
+<p>我们一般默认点号（.)是用来访问对象属性，而方括号（[]）是用来访问数组元素的，但是在JS中不是这样。对象的属性也可用[]来访问，不过两种访问方法是有区别的</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="number">0</span> = {x:<span class="number">1</span>，y:{z:<span class="number">3</span>}};</div><div class="line">o.x             <span class="comment">//1</span></div><div class="line">o.y.z           <span class="comment">//3</span></div><div class="line">o[<span class="string">"x"</span>]          <span class="comment">//1</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li>如果属性名称是一个保留字或者包含空格和标点符号，或是一个数字（对数组来说），则必须使用方括号[]的写法</li>
+<li>当属性名是通过运算得出的值而不是固定的值的时候，必须使用方括号</li>
+</ul>
+<h4 id="当数字遇到数字字符串">当数字遇到数字字符串</h4>
+<p>什么意思呢，我们先来看一段代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> + <span class="number">2</span>             <span class="comment">//3</span></div><div class="line"><span class="string">"1"</span> + <span class="string">"2"</span>         <span class="comment">//"12"</span></div><div class="line"><span class="string">"1"</span> + <span class="number">2</span>           <span class="comment">//"12"  数字转换为字符串</span></div><div class="line"><span class="number">11</span> &lt; <span class="number">3</span>            <span class="comment">//false</span></div><div class="line"><span class="string">"11"</span> &lt; <span class="string">"3"</span>        <span class="comment">//true</span></div><div class="line"><span class="string">"11"</span> &lt; <span class="number">3</span>          <span class="comment">//false 字符串转换为数字</span></div></pre></td></tr></table></figure>
+
+<p>通过上面例子我们可以看出：</p>
+<ul>
+<li>加号运算符更加偏爱字符串，会优先把数字转化成字符串</li>
+<li>而比较运算符则更偏爱数字，会优先把字符串转换成数字</li>
+</ul>
+<h4 id="=和==和===">=和==和===</h4>
+<p>刚开始看到一会用==，一会用===博主也有点晕，实际我们来看看他们的区别</p>
+<ul>
+<li>“=” 赋值运算</li>
+<li>“==” 比较运算符，进行值比较，如果两个操作数不是同一类型，会先尝试做自动类型转换，再进行比较<ul>
+<li>null == undefined</li>
+<li>数字与字符串比较，先将字符串转换为数字再比较</li>
+<li>true转换为1，false转换为0</li>
+<li>对象与原始值比较，先按规则将对象转换为原始值再比较</li>
+</ul>
+</li>
+<li>“===” 严格相等比较运算符，比较过程中不做自动类型转换<ul>
+<li>null 和undefined 不等于自身</li>
+<li>NaN和其它任何值都不等，包括自身</li>
+<li>0 === -0</li>
+<li>两个引用值指向同一个对象、数组或函数，则相等</li>
+</ul>
+</li>
+</ul>
+<p><strong>eval()这里博主愚笨，没看懂这个函数到底是干嘛的，还望有人指点</strong></p>
+<hr>
+<h2 id="chapter5">chapter5</h2>
+<p>这一章讲的是语句。学习过其它语言的应该都不陌生。</p>
+<hr>
+<ul>
+<li>switch中 case子句的表达与switch关键字后的expression匹配时，是按照’===’运算符进行比较的</li>
+<li>没太懂标签语句的用法</li>
+</ul>
+<h4 id="continue语句">continue语句</h4>
+<p>这里涉及到for语句和while语句等价的问题，需要探讨一下</p>
+<ul>
+<li>continue 语句的作用是跳过本次循环，执行下一次循环，但在不同的循环中，有一些细节差异<ul>
+<li>在while循环中，在循环开始处指定的expession会重复检测，如果检测结果为真，循环体会从头开始执行</li>
+<li>在do/while循环中，程序的执行直接跳转到循环结尾处，这时会重新判断循环条件，之后才会继续下一次循环</li>
+<li>在for循环中，首先计算自增表达式，然后再次检测test表达式，用以判断是否执行循环体</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/前端开发/">前端开发</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/笔记/">笔记</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2014/12/17/JavaScript进阶篇/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+<section id="comment">
+
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2014/12/30/&quot;犀牛书&quot;思考笔记/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2014/12/30/&quot;犀牛书&quot;思考笔记/" data-title="犀牛书思考笔记（一）" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"misok"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Android/">Android</a><small>2</small></li>
+  
+    <li><a href="/categories/Hexo/">Hexo</a><small>1</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>3</small></li>
+  
+    <li><a href="/categories/前端开发/">前端开发</a><small>4</small></li>
+  
+    <li><a href="/categories/开源软件/">开源软件</a><small>1</small></li>
+  
+    <li><a href="/categories/摄影/">摄影</a><small>1</small></li>
+  
+    <li><a href="/categories/生活记录/">生活记录</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/CSS/" style="font-size: 10.00px;">CSS</a><a href="/tags/HTML5/" style="font-size: 10.00px;">HTML5</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/JS/" style="font-size: 13.33px;">JS</a><a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a><a href="/tags/OSS/" style="font-size: 10.00px;">OSS</a><a href="/tags/Python/" style="font-size: 10.00px;">Python</a><a href="/tags/android/" style="font-size: 13.33px;">android</a><a href="/tags/answer/" style="font-size: 10.00px;">answer</a><a href="/tags/codecademy/" style="font-size: 10.00px;">codecademy</a><a href="/tags/life/" style="font-size: 16.67px;">life</a><a href="/tags/mac/" style="font-size: 10.00px;">mac</a><a href="/tags/spider/" style="font-size: 10.00px;">spider</a><a href="/tags/开源软件/" style="font-size: 10.00px;">开源软件</a><a href="/tags/摄影/" style="font-size: 10.00px;">摄影</a><a href="/tags/环境/" style="font-size: 10.00px;">环境</a><a href="/tags/笔记/" style="font-size: 20.00px;">笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://abbeychenxi.net/" title="Abbey in cradle studio">Abbey</a></li>
+<li><a href="http://andrewliu.tk/" title="Andrew Liu">Andrew Liu</a></li>
+<li><a href="http://jas923.tk/" title="Jason Tan">Janson Tan</a></li>
+<li><a href="http://sqing.tk/" title="Su Qing">Su Qing</a></li>
+<li><a href="http://rulerstorm.github.io/" title="Ruler">Ruler</a></li>
+
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Maqianwen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
