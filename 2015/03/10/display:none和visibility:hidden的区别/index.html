@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS伪类、优先级、属性的继承性等问题 | Misok‘s Blog</title>
+  <meta name="author" content="Maqianwen">
+  
+  <meta name="description" content="爱生活 爱code">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="CSS伪类、优先级、属性的继承性等问题"/>
+  <meta property="og:site_name" content="Misok‘s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Misok‘s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Misok‘s Blog</a></h1>
+  <h2><a href="/">To be a better man.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/resume">Resume</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-03-09T16:00:00.000Z"><a href="/2015/03/10/display:none和visibility:hidden的区别/">2015-03--10</a></time>
+      
+      
+  
+    <h1 class="title">CSS伪类、优先级、属性的继承性等问题</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">写作目的：CSS中有一些需要掌握的知识。贴在这里。主要内容包括：</div><div class="line"><span class="number">1.</span>display:<span class="constant">none</span>和visibility:hidden的区别</div><div class="line"><span class="number">2.</span>CSS选择符、属性的继承性、优先级</div><div class="line"><span class="number">3.</span>：<span class="keyword">before</span>和：<span class="keyword">after</span>伪类</div><div class="line">另外还有position属性的解读和float属性。这是关于布局的另一个故事了，请期待下一篇。</div></pre></td></tr></table></figure>
+
+<h2><a id="more"></a></h2>
+<h2 id="display:none和visibility:hidden的区别">display:none和visibility:hidden的区别</h2>
+<ul>
+<li>首先，两者都是隐藏对应的元素</li>
+<li>display：none 隐藏对应元素后文档布局不再为其分配空间，它周围的元素会合拢</li>
+<li>visibility：hidden隐藏对应元素但在文档布局中依然保留其空间</li>
+</ul>
+<hr>
+<h2 id="CSS选择符、属性的继承性、优先级">CSS选择符、属性的继承性、优先级</h2>
+<ul>
+<li><p>选择符</p>
+<ul>
+<li>id选择器</li>
+<li>类选择器</li>
+<li>标签选择器</li>
+<li>子选择器</li>
+<li>后代选择器</li>
+<li>相邻选择器</li>
+<li>属性选择器</li>
+<li>伪类选择器</li>
+<li>通配符选择器</li>
+</ul>
+</li>
+<li><p>属性的继承性</p>
+<p>所谓CSS的继承是指被包在内部的标签将拥有外部标签的样式性质，它是依赖于祖先-后代的关系的。继承特性最典型的应用通常发挥在整个网页的样式预设。</p>
+<ul>
+<li>可继承的样式<ul>
+<li>字体：font、color、font-family、font-size（继承计算后的值）、font-size-adjust、font-stretch 、font-style 、font-style 、text-underline-position 、font-variant 、 text-transform line-height、letter-spacing 、word-spacing </li>
+<li>文本：text-indent 、text-align 、layout-flow 、writing-mode 、white-space 、word-wrap 、text-kashida-space 、layout-grid 、layout-grid-char 、layout-grid-char-spacing 、layout-grid-line 、layout-grid-mode 、layout-grid-type</li>
+<li>列表：list-style     、list-style-image 、list-style-position 、list-style-type</li>
+<li>表格：border-collapse 、border-spacing 、caption-side 、empty-cells 、table-layout 、speak-header</li>
+</ul>
+</li>
+<li>不可继承的样式<ul>
+<li>字体：text-decoration 、text-shadow</li>
+<li>文本：text-overflow 、vertical-align 、direction、unicode-bidi 、word-break 、line-break 、text-autospace、text-justify 、ruby-align 、ruby-overhang 、ruby-position 、ime-mode</li>
+<li>背景：background、background-origin 、background-clip 、background-size 、background-attachment 、background-color、background-image 、background-position 、background-positionX 、background-positionY 、background-repeat 、layer-background-color 、layer-background-image </li>
+<li>定位：position 、z-index 、top、right 、bottom 、left</li>
+<li>尺寸：height 、max-height 、min-height 、width、max-width 、min-width</li>
+<li>布局：clear 、float、clip 、overflow、overflow-x、overflow-y、display、visibility</li>
+<li>外补丁：margin 、margin-top 、margin-right 、margin-bottom 、margin-left</li>
+<li>内补丁：padding 、padding-top 、padding-right 、padding-bottom 、padding-left</li>
+<li>轮廓：outline、outline-color 、outline-style 、outline-style 、outline-width</li>
+<li>边框：border、border-color 、border-style 、border-image 、border-radius 、box-shadow、border-width 、border-top 、border-top-color 、border-top-style 、border-top-width 、border-right 、border-right-color 、border-right-style 、border-right-width 、border-bottom 、border-bottom-color 、border-bottom-style 、border-bottom-width 、border-left 、border-left-style 、border-left-width</li>
+<li>列表：marker-offset</li>
+<li>其他：cursor、zoom</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="优先级">优先级</h3>
+<p>css优先级用来决定同一个元素样式设置冲突的时候采用哪个样式。</p>
+<p>首先整体优先级原则是：</p>
+<ul>
+<li>优先级就近原则： 同权重情况下以最靠近的元素的样式为准</li>
+<li>载入样式以最后载入的定位为准</li>
+</ul>
+<p>具体有以下规则：</p>
+<ul>
+<li>内联样式&gt;内部样式&gt;外部样式<ul>
+<li>注意：若外部样式放在内部样式之后，则会覆盖内部样式</li>
+</ul>
+</li>
+<li><p>选择器优先权</p>
+<ul>
+<li>内联样式表：1000（权值）</li>
+<li>id选择器：100</li>
+<li>class选择器：10</li>
+<li>标签选择器：1</li>
+</ul>
+<p>在样式表内，计算选择器的权值，权值越大优先级越高</p>
+</li>
+<li>网页编写者的CSS优先于浏览器默认样式</li>
+<li>继承的样式低于后来新设置的样式</li>
+<li>同一组属性设置中标有！important规则的优先级最高<ul>
+<li>！important &gt; id &gt; class &gt; tag</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="：before和：after伪类">：before和：after伪类</h2>
+<p>：before和：after伪类的作用就是在指定的元素内容（而不是元素本身）之前或者之后插入一个包含content属性指定内容的行内元素<br>如果没有content属性，伪类元素就没有作用。插入的内容默认是一个行内元素，且在HTML源代码中无法看到，也无法通过DOM操作。</p>
+<p>但伪类可用于清除浮动：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class">.clearfix</span><span class="pseudo">:after</span><span class="rules">{</span></div><div class="line">	<span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">""</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</div><div class="line">	<span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;</div><div class="line">	<span class="rule"><span class="attribute">visibility</span>:<span class="value"> hidden</span></span>;</div><div class="line">	<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>;</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/前端开发/">前端开发</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/CSS/">CSS</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2015/02/08/选取文档元素的方法/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+<section id="comment">
+
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2015/03/10/display:none和visibility:hidden的区别/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2015/03/10/display:none和visibility:hidden的区别/" data-title="CSS伪类、优先级、属性的继承性等问题" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"misok"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Android/">Android</a><small>2</small></li>
+  
+    <li><a href="/categories/Hexo/">Hexo</a><small>1</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>3</small></li>
+  
+    <li><a href="/categories/前端开发/">前端开发</a><small>8</small></li>
+  
+    <li><a href="/categories/开源软件/">开源软件</a><small>1</small></li>
+  
+    <li><a href="/categories/摄影/">摄影</a><small>1</small></li>
+  
+    <li><a href="/categories/生活记录/">生活记录</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/CSS/" style="font-size: 17.50px;">CSS</a><a href="/tags/HTML5/" style="font-size: 10.00px;">HTML5</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/JS/" style="font-size: 17.50px;">JS</a><a href="/tags/JavaScript/" style="font-size: 15.00px;">JavaScript</a><a href="/tags/OSS/" style="font-size: 10.00px;">OSS</a><a href="/tags/Python/" style="font-size: 10.00px;">Python</a><a href="/tags/android/" style="font-size: 12.50px;">android</a><a href="/tags/answer/" style="font-size: 10.00px;">answer</a><a href="/tags/codecademy/" style="font-size: 10.00px;">codecademy</a><a href="/tags/jQuery/" style="font-size: 15.00px;">jQuery</a><a href="/tags/life/" style="font-size: 15.00px;">life</a><a href="/tags/mac/" style="font-size: 10.00px;">mac</a><a href="/tags/spider/" style="font-size: 10.00px;">spider</a><a href="/tags/开源软件/" style="font-size: 10.00px;">开源软件</a><a href="/tags/摄影/" style="font-size: 10.00px;">摄影</a><a href="/tags/环境/" style="font-size: 10.00px;">环境</a><a href="/tags/笔记/" style="font-size: 20.00px;">笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://abbeychenxi.net/" title="Abbey in cradle studio">Abbey</a></li>
+<li><a href="http://andrewliu.tk/" title="Andrew Liu">Andrew Liu</a></li>
+<li><a href="http://jas923.tk/" title="Jason Tan">Janson Tan</a></li>
+<li><a href="http://sqing.tk/" title="Su Qing">Su Qing</a></li>
+<li><a href="http://rulerstorm.github.io/" title="Ruler">Ruler</a></li>
+
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Maqianwen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
