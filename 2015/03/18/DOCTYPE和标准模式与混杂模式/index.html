@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>学期总结 | Misok‘s Blog</title>
+  <title>DOCTYPE与标准模式与混杂模式 | Misok‘s Blog</title>
   <meta name="author" content="Maqianwen">
   
   <meta name="description" content="爱生活 爱code">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="学期总结"/>
+  <meta property="og:title" content="DOCTYPE与标准模式与混杂模式"/>
   <meta property="og:site_name" content="Misok‘s Blog"/>
 
   
@@ -52,25 +52,49 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-11-28T16:00:00.000Z"><a href="/2014/11/29/关于学习/">2014-11--29</a></time>
+        <time datetime="2015-03-17T16:00:00.000Z"><a href="/2015/03/18/DOCTYPE和标准模式与混杂模式/">2015-03--18</a></time>
       
       
   
-    <h1 class="title">学期总结</h1>
+    <h1 class="title">DOCTYPE与标准模式与混杂模式</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>在来南大以前，对刚刚过去的两个月是有明确规划的。两大方面，健身加自我充电。课程不是特别多但是也蛮紧张。虽然本来打算今天去拍拍南大秋景的，但是感冒加上，恩，你懂得，然后就在宿舍睡了一天。这会忽然想总结下过去的两个月，虽然说计划总是赶不上变化，但是没一点点计划的人生我过不来。<br>    不过今天真的是来南大以来整个人最轻松的一天。<br><a id="more"></a></p>
-<h3 id="关于学习">关于学习</h3>
-<p>本科最大是遗憾或许就是没拿过三等以上奖学金。来南大以后特别想补上这个遗憾。对课程还是很上心的。但是发现这边的学生真的都很用功。比我用功的多，好像大家都有一技之长。所以开学初压力就很大。导致脾气也不好。夏天的时候一直有按计划坚持，坚持早上起来学习英语。说起英语真是一个永远的痛，南方人英语好是普遍的，其实我也很想说一口流利的英语，经常都很羡慕那种跟老外随意聊天的人，没找到很好的提高方法，也是因为不够勤奋。这真是一个需要勤奋和努力的事情，我承认我还不够努力，所以得承受没努力带来的嘲笑和鄙视。这是应得的，但是对那些嘲笑和鄙视一笑了之的原因是，我知道有一天我回变成我羡慕的那种人。这点信心还是有的。也坚持完善code技能。本科对专业真是荒废了，但是发现每天要上课，学习英语，健身，尤其是后来开了研讨班，真的抽不出时间code，或许是还不够用功，但是记得有几天真的压力超大，而且脾气很差，当然都来源于觉得自己很水，有些时候甚至怀疑自己到底适不适合这个行业。心态很差。后来适当的调整了目标，决定code先放一放。<br>    对于刚刚过去的考试，觉得考得还是不错的，起码对这两个月的学习有了交代，其实更开心的就是可以有更多的时间自由支配，这样就可以在找实习之前让自己变得足够强。</p>
-<h3 id="关于生活">关于生活</h3>
-<p>生活的话，就是刚开学觉得离家这么远，确实有点想家，舍友都是南方人，只有自己是来了更远的地方，不知道这样的选择是否正确，但是只能自己坚持。吃的，其实比起以前只有面的生活好点，而且我的适应能力也太强了，吃了一周就适应了这按甜甜的奇怪味道了。对南京还是喜欢的。就是身体真是跟不上这种强节奏，十二点睡觉就有点吃不消了，更别说熬夜什么的，耳鸣一直来光顾我，现在都习以为常了。除了舍友也没过多的交别的什么朋友，现在这个年纪真不喜欢在社交上花时间，而且我本人也觉得无效社交没必要，得先提高自己。</p>
-<h3 id="other">other</h3>
-<p>其它现在想不起来，思维刚被打断了一会。</p>
-<p>但是新学期开始，一定要加油。为了<br>能在找实习的时候找到心仪的工作。</p>
-<p><img src="/img/秋.jpg" alt="南大.秋"></p>
+        <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">写作目的：</div><div class="line">介绍下什么是标准模式与混杂模式</div><div class="line">怎么开启它们</div><div class="line">与DOCTYPE的关系</div><div class="line">怎么检测</div></pre></td></tr></table></figure>
+
+<p><a id="more"></a></p>
+<h3 id="DOCTYPE是什么">DOCTYPE是什么</h3>
+<p>DOCTYPE：文档类型声明，它告诉浏览器以哪种标准来解析文档。<br>DOCTYPE定义了三种DTD（文档类型定义）：</p>
+<ul>
+<li>严格版本</li>
+<li>过渡版本</li>
+<li>基于框架的HTML</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"</span></div><div class="line">"http://www.w3.org//TR/html4/strict.dtd"&gt;     HTML4.01</div><div class="line"><span class="doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"</span></div><div class="line">"http://www.w3.org//TR/xhtml11/DTD//xhtml11.dtd"&gt;  XHTML1.1</div><div class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span> HTML5</div></pre></td></tr></table></figure>
+
+<p>以上三个是几个常见的DOCTYPE写法。</p>
+<h3 id="标准模式与混杂模式">标准模式与混杂模式</h3>
+<p>而所谓标准模式和混杂模式，是浏览器厂商为了保证浏览器的向后兼容性而创建的两种呈现模式。而这两种模式的触发与DOCTYPE是否存在以及使用哪种DTD有关。</p>
+<ul>
+<li>如果XHTML包含完整的DOCTYPE，则它一般以标准模式呈现</li>
+<li>对于HTML4.01文档<ul>
+<li>DTD若为严格版本，则页面一般以标准模式呈现</li>
+<li>DTD若为过渡版本且带有URL，则页面以标准模式呈现；如果DTD为过度版本但是没有URL，则页面以混杂模式呈现</li>
+</ul>
+</li>
+<li>DOCTYPE不存在或者形式不正确，页面以混杂模式呈现</li>
+<li>HTML5页面以标准模式呈现</li>
+</ul>
+<h3 id="如何检测">如何检测</h3>
+<p>可以通过document.compatMODE来检测文档以哪种模式渲染的。</p>
+<ul>
+<li>若document.compatMODE值为css1Compat,则为标准模式</li>
+<li>若document.compatMODE值为BackCompat则为混杂模式</li>
+<li>若document.compatMODE值为undefined则为混杂模式</li>
+</ul>
+<p>注：使用标准模式与混杂模式会有许多细微区别，不同浏览器不同标准表现都不一样，但是使用标准模式对页面的要求更为严格。</p>
 
       
     </div>
@@ -79,13 +103,13 @@
         
   
   <div class="categories">
-    <a href="/categories/生活记录/">生活记录</a>
+    <a href="/categories/前端开发/">前端开发</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/life/">life</a>
+    <a href="/tags/HTML/">HTML</a>, <a href="/tags/CSS/">CSS</a>
   </div>
 
         
@@ -115,10 +139,8 @@
 
  <nav id="pagination" >
     
-    <a href="/2014/11/30/前端开发学习笔记/" class="alignleft prev" >上一页</a>
     
-    
-    <a href="/2014/11/15/对开源软件的一些思考/" class="alignright next" >下一页</a>
+    <a href="/2015/03/10/display:none和visibility:hidden的区别/" class="alignright next" >下一页</a>
     
     <div class="clearfix"></div>
 </nav>
@@ -138,11 +160,11 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://yoursite.com/2014/11/29/关于学习/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://yoursite.com/2015/03/18/DOCTYPE和标准模式与混杂模式/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="2014/11/29/关于学习/" data-title="学期总结" data-url=""></div>
+  <div class="ds-thread" data-thread-key="2015/03/18/DOCTYPE和标准模式与混杂模式/" data-title="DOCTYPE与标准模式与混杂模式" data-url=""></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
