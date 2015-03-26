@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS布局(一) | Misok‘s Blog</title>
+  <meta name="author" content="Maqianwen">
+  
+  <meta name="description" content="爱生活 爱code">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="CSS布局(一)"/>
+  <meta property="og:site_name" content="Misok‘s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Misok‘s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Misok‘s Blog</a></h1>
+  <h2><a href="/">To be a better man.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/resume">Resume</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-03-24T16:00:00.000Z"><a href="/2015/03/25/CSS布局（一）/">2015-03--25</a></time>
+      
+      
+  
+    <h1 class="title">CSS布局(一)</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">写作目的：</div><div class="line">接上一篇HeadFirst HTML与CSS读书笔记</div><div class="line">这一篇重点说说最近理解的CSS布局</div><div class="line">包括：</div><div class="line">1.侧边栏浮动布局</div><div class="line">2.右紧左松布局</div><div class="line">3.冻结布局</div><div class="line">4.凝胶布局</div></pre></td></tr></table></figure>
+
+<p><a id="more"></a><br>要说清楚布局，我们这里借用书上的例子来说。<br>首先，这是一个咖啡店的主页，这是没有布局之前的正常流网页。<br><img src="/img/origin.png" alt="原始网页"><br>先附上源码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">    &lt;title&gt;Starbuzz Coffee&lt;/title&gt;</div><div class="line">    &lt;link rel=<span class="string">"stylesheet"</span> type=<span class="string">"text/css"</span> href=<span class="string">"starbuzz.css"</span>&gt;</div><div class="line">  &lt;/head&gt; </div><div class="line"></div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;<span class="keyword">div</span> <span class="property">id</span>=<span class="string">"header"</span>&gt;</div><div class="line">      &lt;img src=<span class="string">"images/header.gif"</span> alt=<span class="string">"Starbuzz Coffee header image"</span>&gt;</div><div class="line">    &lt;/<span class="keyword">div</span>&gt;</div><div class="line"></div><div class="line">    &lt;<span class="keyword">div</span> <span class="property">id</span>=<span class="string">"main"</span>&gt;</div><div class="line">      &lt;h1&gt;QUALITY COFFEE, QUALITY CAFFEINE&lt;/h1&gt;</div><div class="line">      &lt;p&gt;</div><div class="line">        At Starbuzz Coffee, we are dedicated <span class="keyword">to</span> filling all your  caffeine needs <span class="keyword">through</span> our </div><div class="line">        quality coffees <span class="keyword">and</span> teas. Sure, we want you <span class="keyword">to</span> have a great cup <span class="keyword">of</span> coffee <span class="keyword">and</span> a great </div><div class="line">        coffee experience <span class="keyword">as</span> well, <span class="keyword">but</span> we're <span class="keyword">the</span> only company <span class="keyword">that</span> actively monitors <span class="keyword">and</span> </div><div class="line">        optimizes caffeine levels. So stop <span class="keyword">by</span> <span class="keyword">and</span> fill your cup, <span class="keyword">or</span> order online <span class="keyword">with</span> our new Bean </div><div class="line">        Machine online order form, <span class="keyword">and</span> <span class="keyword">get</span> <span class="keyword">that</span> quality Starbuzz coffee <span class="keyword">that</span> you know will meet </div><div class="line">        your caffeine standards.</div><div class="line">      &lt;/p&gt;</div><div class="line">      &lt;p&gt;</div><div class="line">        And, did we mention &lt;em&gt;caffeine&lt;/em&gt;? We've just started funding <span class="keyword">the</span> guys doing all </div><div class="line">        <span class="keyword">the</span> wonderful research <span class="keyword">at</span> <span class="keyword">the</span> &lt;a href=<span class="string">"http://buzz.wickedlysmart.com"</span></div><div class="line">        title=<span class="string">"Read all about caffeine on the Buzz"</span>&gt;Caffeine Buzz&lt;/a&gt;.</div><div class="line">        If you want <span class="keyword">the</span> latest <span class="function_start"><span class="keyword">on</span></span> coffee <span class="keyword">and</span> other caffeine products, </div><div class="line">        stop <span class="keyword">by</span> <span class="keyword">and</span> pay them a visit.</div><div class="line">      &lt;/p&gt;</div><div class="line">      &lt;h1&gt;OUR STORY&lt;/h1&gt;</div><div class="line">      &lt;p&gt;</div><div class="line">        <span class="string">"A man, a plan, a coffee bean"</span>. Okay, <span class="keyword">that</span> doesn't make a palindrome, <span class="keyword">but</span> <span class="keyword">it</span> resulted</div><div class="line">        <span class="keyword">in</span> a damn good cup <span class="keyword">of</span> coffee.  Starbuzz's CEO <span class="keyword">is</span> <span class="keyword">that</span> man, <span class="keyword">and</span> you already know his </div><div class="line">        plan: a Starbuzz <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">every</span> corner.</div><div class="line">      &lt;/p&gt; </div><div class="line">      &lt;p&gt;In only a few years he's executed <span class="keyword">that</span> plan <span class="keyword">and</span> today </div><div class="line">        you can enjoy Starbuzz just <span class="keyword">about</span> anywhere.  And, <span class="keyword">of</span> course, <span class="keyword">the</span> big news this <span class="property">year</span> </div><div class="line">        <span class="keyword">is</span> <span class="keyword">that</span> Starbuzz teamed up <span class="keyword">with</span> Head First readers <span class="keyword">to</span> create Starbuzz's Web presence,  </div><div class="line">        which <span class="keyword">is</span> growing rapidly <span class="keyword">and</span> helping <span class="keyword">to</span> meet <span class="keyword">the</span> caffeine needs <span class="keyword">of</span> a whole new <span class="keyword">set</span> <span class="keyword">of</span> </div><div class="line">        customers.  </div><div class="line">      &lt;/p&gt;</div><div class="line">      &lt;h1&gt;STARBUZZ COFFEE BEVERAGES&lt;/h1&gt;</div><div class="line">      &lt;p&gt;</div><div class="line">        We've got a variety <span class="keyword">of</span> caffeinated beverages <span class="keyword">to</span> choose</div><div class="line">        <span class="keyword">from</span> <span class="keyword">at</span> Starbuzz, including our </div><div class="line">        &lt;a href=<span class="string">"beverages.html#house"</span> title=<span class="string">"House Blend"</span>&gt;House Blend&lt;/a&gt;,</div><div class="line">        &lt;a href=<span class="string">"beverages.html#mocha"</span> title=<span class="string">"Mocha Cafe Latte"</span>&gt;Mocha Cafe Latte&lt;/a&gt;, </div><div class="line">        &lt;a href=<span class="string">"beverages.html#cappuccino"</span> title=<span class="string">"Cappuccino"</span>&gt;Cappuccino&lt;/a&gt;,</div><div class="line">        <span class="keyword">and</span> a favorite <span class="keyword">of</span> our customers, </div><div class="line">        &lt;a href=<span class="string">"beverages.html#chai"</span> title=<span class="string">"Chai Tea"</span>&gt;Chai Tea&lt;/a&gt;.</div><div class="line">      &lt;/p&gt;</div><div class="line">      &lt;p&gt;</div><div class="line">        We also offer a variety <span class="keyword">of</span> coffee beans, whole <span class="keyword">or</span> ground, <span class="keyword">for</span> you <span class="keyword">to</span></div><div class="line">        take home <span class="keyword">with</span> you.  Order your coffee today using our online</div><div class="line">        &lt;a href=<span class="string">"form.html"</span>&gt;Bean Machine&lt;/a&gt;, <span class="keyword">and</span> take</div><div class="line">        <span class="keyword">the</span> Starbuzz Coffee experience home.</div><div class="line">      &lt;/p&gt;</div><div class="line">    &lt;/<span class="keyword">div</span>&gt;</div><div class="line"></div><div class="line">    &lt;<span class="keyword">div</span> <span class="property">id</span>=<span class="string">"sidebar"</span>&gt;</div><div class="line">      &lt;p <span class="type">class</span>=<span class="string">"beanheading"</span>&gt;</div><div class="line">        &lt;img src=<span class="string">"images/bag.gif"</span> alt=<span class="string">"Bean Machine bag"</span>&gt;</div><div class="line">        &lt;br&gt;</div><div class="line">        ORDER ONLINE</div><div class="line">        <span class="keyword">with</span> <span class="keyword">the</span> </div><div class="line">        &lt;a href=<span class="string">"form.html"</span>&gt;BEAN MACHINE&lt;/a&gt;</div><div class="line">        &lt;br&gt;</div><div class="line">        &lt;span <span class="type">class</span>=<span class="string">"slogan"</span>&gt;</div><div class="line">            FAST &lt;br&gt;</div><div class="line">            FRESH &lt;br&gt;</div><div class="line">            TO YOUR DOOR &lt;br&gt;</div><div class="line">        &lt;/span&gt;</div><div class="line">      &lt;/p&gt;</div><div class="line">      &lt;p&gt;</div><div class="line">        Why wait?  You can order all our fine coffees right <span class="keyword">from</span> <span class="keyword">the</span> Internet <span class="keyword">with</span> our new, </div><div class="line">        automated Bean Machine.  How <span class="keyword">does</span> <span class="keyword">it</span> work?  Just click <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> Bean Machine link, </div><div class="line">        enter your order, <span class="keyword">and</span> <span class="keyword">behind</span> <span class="keyword">the</span> scenes, your coffee <span class="keyword">is</span> roasted, ground </div><div class="line">        (<span class="keyword">if</span> you want), packaged, <span class="keyword">and</span> shipped <span class="keyword">to</span> your door.</div><div class="line">      &lt;/p&gt;</div><div class="line">    &lt;/<span class="keyword">div</span>&gt;</div><div class="line"></div><div class="line">    &lt;<span class="keyword">div</span> <span class="property">id</span>=<span class="string">"footer"</span>&gt;</div><div class="line">      &<span class="keyword">copy</span>; <span class="number">2012</span>, Starbuzz Coffee</div><div class="line">      &lt;br&gt;</div><div class="line">      All trademarks <span class="keyword">and</span> registered trademarks appearing <span class="function_start"><span class="keyword">on</span></span> </div><div class="line">      this site are <span class="keyword">the</span> <span class="keyword">property</span> <span class="keyword">of</span> their respective owners.</div><div class="line">    &lt;/<span class="keyword">div</span>&gt;</div><div class="line"></div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+<p>css文件：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="tag">body</span> <span class="rules">{ </span></div><div class="line">  <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#b5a789</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">font-family</span>:<span class="value">      Georgia, <span class="string">"Times New Roman"</span>, Times, serif</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">font-size</span>:<span class="value">        small</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">margin</span>:<span class="value">           <span class="number">0px</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="id">#header</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#675c47</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">margin</span>:<span class="value">           <span class="number">10px</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">height</span>:<span class="value">           <span class="number">108px</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="id">#sidebar</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">background</span>:<span class="value">       <span class="hexcolor">#efe5d0</span> <span class="function">url</span>(images/background.gif) bottom right</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">font-size</span>:<span class="value">        <span class="number">105%</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">padding</span>:<span class="value">          <span class="number">15px</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">margin</span>:<span class="value">           <span class="number">0px</span> <span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="id">#main</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">background</span>:<span class="value">       <span class="hexcolor">#efe5d0</span> <span class="function">url</span>(images/background.gif) top left</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">font-size</span>:<span class="value">        <span class="number">105%</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">padding</span>:<span class="value">          <span class="number">15px</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">margin</span>:<span class="value">           <span class="number">0px</span> <span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="id">#footer</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#675c47</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">color</span>:<span class="value">            <span class="hexcolor">#efe5d0</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">text-align</span>:<span class="value">       center</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">padding</span>:<span class="value">          <span class="number">15px</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">margin</span>:<span class="value">           <span class="number">10px</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">font-size</span>:<span class="value">        <span class="number">90%</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="tag">h1</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">font-size</span>:<span class="value">        <span class="number">120%</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">color</span>:<span class="value">            <span class="hexcolor">#954b4b</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="class">.slogan</span> <span class="rules">{ <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#954b4b</span></span></span>; <span class="rule">}</span></span></div><div class="line"><span class="class">.beanheading</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">text-align</span>:<span class="value">       center</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">line-height</span>:<span class="value">      <span class="number">1.8em</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="tag">a</span><span class="pseudo">:link</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">color</span>:<span class="value">            <span class="hexcolor">#b76666</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">text-decoration</span>:<span class="value">  none</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">border-bottom</span>:<span class="value">    thin dotted <span class="hexcolor">#b76666</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="tag">a</span><span class="pseudo">:visited</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">color</span>:<span class="value">            <span class="hexcolor">#675c47</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">text-decoration</span>:<span class="value">  none</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">border-bottom</span>:<span class="value">    thin dotted <span class="hexcolor">#675c47</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>可以看出，这是一个典型的具有header，footer,content以及sidebar的布局。那么我们用css怎么来实现呢。</p>
+<p>在这之前，先说说如何浮动元素</p>
+<ol>
+<li>给要浮动的元素指定一个id</li>
+<li>指定宽度（对于浮动元素必须有宽度）</li>
+<li>让它浮动（float：left/right;）</li>
+</ol>
+<hr>
+<p>方法一：让sidebar浮动，main部分可以随浏览器自由伸缩。</p>
+<ul>
+<li>要让sidebar浮动在main的右边，我们要先考虑下这几部分之间的顺序。</li>
+<li>浮动是什么意思呢，浮动是把元素从正常文档流中拿出，让他尽可能向一个方向偏离。他前面和后面的块元素会当他不存在一样，继续按顺序在正常流中摆放，而块元素中的内联元素会留意浮动元素的边界。</li>
+<li>所以让我们来想想，假如按照现在HTML文档中的顺序，浏览器先摆放header，因为是div元素，占满一行，再换行摆放main,main也一样是div元素，占满一行，那么到sidebar的时候浏览器发现他是个向右浮动元素，那么浏览器会在main下面把sidebar浮动在右边，而footer继续正常摆放，那看上去就像这样：<br><img src="/img/float-wrong1.png" alt="错误浮动"><br>这显然不是我们想要的效果，所以聪明的你肯定也想到了，我们想让sidebar在header下面浮动，就要把它紧跟header放置。改动我们的代码，调整位置，并在#sidebar中添加：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="id">#sidebar</span>{</div><div class="line">	<span class="attribute">float</span>：<span class="attribute">right</span>;</div><div class="line">	<span class="attribute">width</span><span class="value">:<span class="number">280px</span>;</span></div><div class="line">	}</div></pre></td></tr></table></figure>
+
+<p>现在我们看到的网页就像这样：<br><img src="/img/float-ok.png" alt="正确浮动"><br>调整浏览器窗口大小，让它最大化，情况就变成了这样：<br><img src="/img/footer-wrong.png" alt="新问题"><br>上面的网页现在有两个问题：</p>
+<ol>
+<li>main部分还是平铺的，main里面的内容（内联元素）是围绕在sidebar周围的，实际上这时候main整个部分是在sidebar下面的，我们怎么让它们看上去是显示在一排的呢，很简单，给main加上右侧外边距，让它的大小至少等于sidebar的宽度。</li>
+<li>页脚在全屏的时候上移，这也不是我们想要的效果，这里我们要用到一个新属性，clear（清除浮动）。clear的意思就是：当元素流入页面时，在这个元素的左边或者右边或者两侧不允许有浮动内容。如果有，则会把元素下移，直到没有浮动的地方。<br>所以，上面两个问题我们再加两个样式就搞定：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="id">#main</span><span class="rules">{</span></div><div class="line">	<span class="rule"><span class="attribute">margin-right</span>:<span class="value"><span class="number">330px</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="id">#footer</span><span class="rules">{</span></div><div class="line">	<span class="rule"><span class="attribute">clear</span>:<span class="value">right</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>最后完成的网页如图所示：<br><img src="/img/float-finish.png" alt="完成1"></p>
+<p>虽然看上去还不错，但这种方法有两个缺点：</p>
+<ol>
+<li>随着浏览器大小的变化，main部分和sidebar不一样高，所以会有留白</li>
+<li>如果在小屏或者手机或者其他浏览器宽度小于一定值时浏览，sidebar部分会在main的上面，这可能对用户来说并不是一件好事，我们应该首先显示重要信息。</li>
+</ol>
+<hr>
+<p>方法2：右紧左松记忆法，即让main部分浮动，sidebar随浏览器调整大小（可以解决上面第二个问题）</p>
+<ul>
+<li>调整HTML为最初的顺序</li>
+<li>添加如下代码：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="id">#main</span><span class="rules">{</span></div><div class="line">	<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">420px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="id">#sidebar</span><span class="rules">{</span></div><div class="line">	<span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">470px</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="id">#footer</span><span class="rules">{</span></div><div class="line">	<span class="rule"><span class="attribute">clear</span>:<span class="value">left</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>效果如下：<br><img src="/img/float-main.png" alt="方法2"></p>
+<p>可以看出，上面方法还是有两个问题：</p>
+<ol>
+<li>main部分和sidebar不一样高</li>
+<li>sidebar在浏览器足够宽的时候会显得过于扩展。</li>
+</ol>
+<hr>
+<p>方法3：在上面这个例子中，布局自动扩展给我带了了一些小问题，这个时候我们可能希望锁定布局，当用户调整屏幕大小时，让设计保持原样，这称为冻结布局。</p>
+<ul>
+<li>首先，给HTML中的四部分最外层加上一个新的div,即用一个div把header，main,sidebar,footer包裹起来，id为allcontent</li>
+<li>给allcontent添加样式</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="id">#allcontent</span><span class="rules">{</span></div><div class="line">	<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">800px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">padding-top</span>:<span class="value"><span class="number">10px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">padding-bottom</span>:<span class="value"><span class="number">10px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#675c47</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>注意：此处添加的两项是在之前方法二的基础上添加<br>现在网页是下面这样：<br><img src="/img/frozen.png" alt="冻结布局"></p>
+<p>可以看出：main和sidebar两部分的相对大小不再随浏览器变化，但是右边有大量留白。</p>
+<hr>
+<p>方法4：解决上述留白问题，我们使用凝胶布局。这种布局会锁定页面中内容区的宽度，但会将内容在浏览器居中。</p>
+<ul>
+<li>我们只需要在方法三的基础上添加如下样式：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="id">#allcontent</span><span class="rules">{</span></div><div class="line">	<span class="rule"><span class="attribute">margin-left</span>:<span class="value">auto</span></span>;</div><div class="line">	<span class="rule"><span class="attribute">margin-right</span>:<span class="value">auto</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>现在网页是这样：<br><img src="/img/jello.png" alt="凝胶布局"></p>
+<p>可以看出，已经比以前好多了。但是还是没有解决sidebar和main没对齐的问题。</p>
+<hr>
+<p>待续。。。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/前端开发/">前端开发</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/CSS，HTML/">CSS，HTML</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2015/03/25/《HeadFirst HTML与CSS》读书总结/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+<section id="comment">
+
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2015/03/25/CSS布局（一）/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2015/03/25/CSS布局（一）/" data-title="CSS布局(一)" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"misok"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Android/">Android</a><small>2</small></li>
+  
+    <li><a href="/categories/Hexo/">Hexo</a><small>1</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>3</small></li>
+  
+    <li><a href="/categories/前端开发/">前端开发</a><small>13</small></li>
+  
+    <li><a href="/categories/开源软件/">开源软件</a><small>1</small></li>
+  
+    <li><a href="/categories/摄影/">摄影</a><small>1</small></li>
+  
+    <li><a href="/categories/生活记录/">生活记录</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/CSS/" style="font-size: 20.00px;">CSS</a><a href="/tags/CSS，HTML/" style="font-size: 13.33px;">CSS，HTML</a><a href="/tags/HTML/" style="font-size: 10.00px;">HTML</a><a href="/tags/HTML5/" style="font-size: 10.00px;">HTML5</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/JS/" style="font-size: 20.00px;">JS</a><a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a><a href="/tags/OSS/" style="font-size: 10.00px;">OSS</a><a href="/tags/Python/" style="font-size: 10.00px;">Python</a><a href="/tags/android/" style="font-size: 13.33px;">android</a><a href="/tags/answer/" style="font-size: 10.00px;">answer</a><a href="/tags/codecademy/" style="font-size: 10.00px;">codecademy</a><a href="/tags/jQuery/" style="font-size: 16.67px;">jQuery</a><a href="/tags/life/" style="font-size: 16.67px;">life</a><a href="/tags/mac/" style="font-size: 10.00px;">mac</a><a href="/tags/spider/" style="font-size: 10.00px;">spider</a><a href="/tags/前端开发，-生活记录/" style="font-size: 10.00px;">前端开发， 生活记录</a><a href="/tags/开源软件/" style="font-size: 10.00px;">开源软件</a><a href="/tags/摄影/" style="font-size: 10.00px;">摄影</a><a href="/tags/环境/" style="font-size: 10.00px;">环境</a><a href="/tags/笔记/" style="font-size: 20.00px;">笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://abbeychenxi.net/" title="Abbey in cradle studio">Abbey</a></li>
+<li><a href="http://andrewliu.tk/" title="Andrew Liu">Andrew Liu</a></li>
+<li><a href="http://jas923.tk/" title="Jason Tan">Janson Tan</a></li>
+<li><a href="http://sqing.tk/" title="Su Qing">Su Qing</a></li>
+<li><a href="http://rulerstorm.github.io/" title="Ruler">Ruler</a></li>
+
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Maqianwen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

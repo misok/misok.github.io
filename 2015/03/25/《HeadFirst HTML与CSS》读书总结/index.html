@@ -152,6 +152,18 @@
 
 <ul>
 <li>设置a元素行为时，按如下顺序，：link,:visited,:hover,:focus,:activ</li>
+<li>外边距折叠问题<br>两个或多个毗邻的普通流中的块元素垂直方向上的 margin 会折叠<ul>
+<li>两个或多个<br>说明其数量必须是大于一个，又说明，折叠是元素与元素间相互的行为，不存在 A 和 B 折叠，B 没有和 A 折叠的现象。</li>
+<li>毗邻<br>是指没有被非空内容、padding、border 或 clear 分隔开，说明其位置关系。<br>注意一点，在没有被分隔开的情况下，一个元素的 margin-top 会和它普通流中的第一个子元素(非浮动元素等)的 margin-top 相邻； 只有在一个元素的 height 是 “auto” 的情况下，它的 margin-bottom 才会和它普通流中的最后一个子元素(非浮动元素等)的 margin-bottom 相邻。</li>
+<li>垂直方向<br>是指具体的方位，只有垂直方向的 margin 才会折叠，也就是说，水平方向的 margin 不会发生折叠的现象</li>
+</ul>
+</li>
+<li>如何使元素的上下margin不折叠<ul>
+<li>浮动元素、inline-block 元素、绝对定位元素的 margin 不会和垂直方向上其他元素的 margin 折叠（注意这里指的是上下相邻的元素）</li>
+<li>创建了块级格式化上下文的元素，不和它的子元素发生 margin 折叠（注意这里指的是创建了BFC的元素和它的子元素不会发生折叠）</li>
+<li>关于最终如何解决这样的问题，我的建议是在写的时候尽量用同一方向的margin，比如都设置为top或者bottom，因为你在实践的时候有时不需要为每个元素设置浮动、inline-block或者absolute</li>
+</ul>
+</li>
 <li>最后一个重要的问题，css布局，我们放在下一篇吧。</li>
 </ul>
 
@@ -197,6 +209,8 @@
 
 
  <nav id="pagination" >
+    
+    <a href="/2015/03/25/CSS布局（一）/" class="alignleft prev" >上一页</a>
     
     
     <a href="/2015/03/21/近期书单/" class="alignright next" >下一页</a>
@@ -260,7 +274,7 @@ var duoshuoQuery = {short_name:"misok"};
   
     <li><a href="/categories/Python/">Python</a><small>3</small></li>
   
-    <li><a href="/categories/前端开发/">前端开发</a><small>12</small></li>
+    <li><a href="/categories/前端开发/">前端开发</a><small>13</small></li>
   
     <li><a href="/categories/开源软件/">开源软件</a><small>1</small></li>
   
@@ -276,7 +290,7 @@ var duoshuoQuery = {short_name:"misok"};
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/CSS/" style="font-size: 20.00px;">CSS</a><a href="/tags/CSS，HTML/" style="font-size: 10.00px;">CSS，HTML</a><a href="/tags/HTML/" style="font-size: 10.00px;">HTML</a><a href="/tags/HTML5/" style="font-size: 10.00px;">HTML5</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/JS/" style="font-size: 20.00px;">JS</a><a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a><a href="/tags/OSS/" style="font-size: 10.00px;">OSS</a><a href="/tags/Python/" style="font-size: 10.00px;">Python</a><a href="/tags/android/" style="font-size: 13.33px;">android</a><a href="/tags/answer/" style="font-size: 10.00px;">answer</a><a href="/tags/codecademy/" style="font-size: 10.00px;">codecademy</a><a href="/tags/jQuery/" style="font-size: 16.67px;">jQuery</a><a href="/tags/life/" style="font-size: 16.67px;">life</a><a href="/tags/mac/" style="font-size: 10.00px;">mac</a><a href="/tags/spider/" style="font-size: 10.00px;">spider</a><a href="/tags/前端开发，-生活记录/" style="font-size: 10.00px;">前端开发， 生活记录</a><a href="/tags/开源软件/" style="font-size: 10.00px;">开源软件</a><a href="/tags/摄影/" style="font-size: 10.00px;">摄影</a><a href="/tags/环境/" style="font-size: 10.00px;">环境</a><a href="/tags/笔记/" style="font-size: 20.00px;">笔记</a>
+    <a href="/tags/CSS/" style="font-size: 20.00px;">CSS</a><a href="/tags/CSS，HTML/" style="font-size: 13.33px;">CSS，HTML</a><a href="/tags/HTML/" style="font-size: 10.00px;">HTML</a><a href="/tags/HTML5/" style="font-size: 10.00px;">HTML5</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/JS/" style="font-size: 20.00px;">JS</a><a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a><a href="/tags/OSS/" style="font-size: 10.00px;">OSS</a><a href="/tags/Python/" style="font-size: 10.00px;">Python</a><a href="/tags/android/" style="font-size: 13.33px;">android</a><a href="/tags/answer/" style="font-size: 10.00px;">answer</a><a href="/tags/codecademy/" style="font-size: 10.00px;">codecademy</a><a href="/tags/jQuery/" style="font-size: 16.67px;">jQuery</a><a href="/tags/life/" style="font-size: 16.67px;">life</a><a href="/tags/mac/" style="font-size: 10.00px;">mac</a><a href="/tags/spider/" style="font-size: 10.00px;">spider</a><a href="/tags/前端开发，-生活记录/" style="font-size: 10.00px;">前端开发， 生活记录</a><a href="/tags/开源软件/" style="font-size: 10.00px;">开源软件</a><a href="/tags/摄影/" style="font-size: 10.00px;">摄影</a><a href="/tags/环境/" style="font-size: 10.00px;">环境</a><a href="/tags/笔记/" style="font-size: 20.00px;">笔记</a>
   </div>
 </div>
 
