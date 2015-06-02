@@ -1,0 +1,363 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css3学习笔记（一） | Misok‘s Blog</title>
+  <meta name="author" content="Maqianwen">
+  
+  <meta name="description" content="爱生活 爱code">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="css3学习笔记（一）"/>
+  <meta property="og:site_name" content="Misok‘s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Misok‘s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Misok‘s Blog</a></h1>
+  <h2><a href="/">To be a better man.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/resume">Resume</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-06-01T16:00:00.000Z"><a href="/2015/06/02/什么是css3/">2015-06--02</a></time>
+      
+      
+  
+    <h1 class="title">css3学习笔记（一）</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">写作目的：css3是最新版本的css,除了完全向后兼容，css3的新特性极大推动了css在开发中的作用。</div><div class="line">本文总结了css3新特性的一些主要内容。包括：</div><div class="line"><span class="bullet">1. </span>选择器</div><div class="line"><span class="bullet">2. </span>边框相关</div><div class="line"><span class="bullet">3. </span>颜色</div><div class="line"><span class="bullet">4. </span>text</div><div class="line"><span class="bullet">5. </span>背景相关</div><div class="line"><span class="bullet">6. </span>transformation（变换）</div><div class="line"><span class="bullet">7. </span>animation</div><div class="line"><span class="bullet">8. </span>多列布局</div><div class="line"><span class="bullet">9. </span>用户接口（resize和offeset）</div><div class="line"><span class="bullet">10. </span>媒体查询和响应式</div><div class="line"><span class="bullet">11. </span>盒模型</div></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p><strong>css3向前兼容需要浏览器前缀</strong>       </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">前缀</th>
+<th style="text-align:right">浏览器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"> -webkit</td>
+<td style="text-align:right">chrome safari</td>
+</tr>
+<tr>
+<td style="text-align:left"> -moz</td>
+<td style="text-align:right">firefox</td>
+</tr>
+<tr>
+<td style="text-align:left"> -ms</td>
+<td style="text-align:right">IE</td>
+</tr>
+<tr>
+<td style="text-align:left"> -o</td>
+<td style="text-align:right">opera</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="选择器">选择器</h4>
+<ul>
+<li>属性选择器（在css2的基础上增加了三个属性选择器）<ul>
+<li>E[ att^ = ‘val’ ] :选择匹配元素E，且E元素定义了属性att，且属性值以val开头的任何字符串</li>
+<li>E[ att$ = ‘val’ ] :选择匹配元素E，且E元素定义了属性att，且属性值以val结尾的任何字符串</li>
+<li>E[ att* = ‘val’ ] :选择匹配元素E，且E元素定义了属性att，且属性值任意位置包含了val</li>
+</ul>
+</li>
+<li>伪类选择器<ul>
+<li>：root :匹配根元素（在HTML中即为<html>）</html></li>
+<li>：not :否定选择器</li>
+<li>：empty： 选择没有任何内容的元素</li>
+<li>：target：目标选择器‘</li>
+<li>：first-child   ：last-child</li>
+<li>：nth-child(n)</li>
+<li>：nth-of-type(n) :某种类型子元素（在父元素的孩子有很多类型时使用）</li>
+<li>：first-of-type  ：last-of-type</li>
+<li>: only-child :父元素只有一个子元素的元素</li>
+<li>：only-of-type: 一个元素的唯一类型的子元素</li>
+<li>：enabled ：disabled 表单中可用和禁用的元素</li>
+<li>：checked：表单中被选中的元素</li>
+<li>：read-only</li>
+<li>：read-write</li>
+</ul>
+</li>
+<li>伪元素选择器<ul>
+<li>：：selection：鼠标选中的文本</li>
+<li>：：before和：：after：给元素的前后插入内容，与content一起使用</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="边框相关">边框相关</h4>
+<ul>
+<li>border-radius</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!doctype html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>border-radius<span class="tag">&lt;/<span class="title">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line"><span class="tag">div</span><span class="class">.circle</span><span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;<span class="comment">/*与width设置一致 实心圆*/</span></div><div class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#9da</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"><span class="number">50%</span></span></span>;<span class="comment">/*四个圆角值都设置为宽度或高度值的一半*/</span></div><div class="line">    <span class="rule">}</span> </div><div class="line"><span class="tag">div</span><span class="class">.semi-circle</span><span class="rules">{ </span></div><div class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>; <span class="rule">//左半圆</span></div><div class="line">    <span class="attribute">width</span>:<span class="value"><span class="number">50px</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#9da</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"><span class="number">50px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">50px</span></span></span>;</div><div class="line">    <span class="rule">}</span></div><div class="line"><span class="tag">div</span><span class="class">.test</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>; <span class="rule">//下半圆</span></div><div class="line">    <span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#9da</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"> <span class="number">0px</span> <span class="number">0px</span> <span class="number">50px</span> <span class="number">50px</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="tag">&lt;/<span class="title">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"circle"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">br</span>/&gt;</span></div><div class="line"><span class="comment">&lt;!--任务部分--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"semi-circle"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"test"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li>border-image<br>三个参数，url:图片路径 切割图片的宽度 图片延伸方式（round:平铺 repeat:重复 stretch:拉伸）<br>例子：我们有一张特殊图片<br><img src="/img/52e21fea000127e802100210.jpg" alt="Alt text"></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="id">#border-image</span><span class="rules">{</span></div><div class="line">   <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#F4FFFA</span></span></span>;</div><div class="line">   <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">210px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">210px</span></span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">70px</span> solid <span class="hexcolor">#ddd</span></span></span>;</div><div class="line">   <span class="rule"><span class="attribute">border-image</span>:<span class="value"><span class="function">url</span>(borderimg.png) <span class="number">70</span> repeat  </span></span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>效果如下：<br><img src="/img/52e220780001091a03530354.jpg" alt="Alt text"><br>效果图中没有五，因为是从中心向四周切割的，所以5显示不出来</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="id">#border-image</span> <span class="rules">{</span></div><div class="line">	<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">170px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">170px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">70px</span> solid</span></span>;</div><div class="line">	<span class="rule"><span class="attribute">border-image</span>:<span class="value"><span class="function">url</span>(borderimg.png) <span class="number">70</span> round；</span></span></div><div class="line"> }</div></pre></td></tr></table></figure>
+
+<p>效果如下：<br><img src="/img/52e2216700014c4103190312.jpg" alt="Alt text"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="id">#border-image</span><span class="rules">{</span></div><div class="line">   <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#F4FFFA</span></span></span>;</div><div class="line">   <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">210px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">210px</span></span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">70px</span> solid <span class="hexcolor">#ddd</span></span></span>;</div><div class="line">   <span class="rule"><span class="attribute">border-image</span>:<span class="value"><span class="function">url</span>(borderimg.png) <span class="number">70</span> stretch  </span></span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>效果如下：<br><img src="/img/52e2218d0001d45403530366.jpg" alt="Alt text"></p>
+<ul>
+<li>box-shadow<br>box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式]<br>其中，x,y为必选参数，投影方式省略为外阴影，inset为内阴影<br>可以为一个元素添加多个阴影，用逗号隔开</li>
+</ul>
+<hr>
+<h4 id="颜色">颜色</h4>
+<ul>
+<li>新增颜色方式<ul>
+<li>rgba(255,255,255,0.5)</li>
+<li>HSL(0,100% ,30%) :色调 饱和度 亮度 (0RED 120GREEN 240BLUE)</li>
+<li>HSLA(0,100%,30%,0.3)</li>
+<li>opacity：透明度</li>
+</ul>
+</li>
+<li>gradient<br>Linear Gradients (goes down/up/left/right/diagonally)<br>Radial Gradients (defined by their center)<br>参数： 渐变方向，颜色的起点和终点（可以有多个）</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">background-image</span><span class="value">:<span class="function">linear-gradient</span>(to left, red, orange,yellow,green,blue,indigo,violet);</span></div></pre></td></tr></table></figure>
+
+<p><img src="/img/54b72c080001611c04230192.jpg" alt="Alt text"></p>
+<h4 id="文字">文字</h4>
+<ul>
+<li>text-overflow:clip | ellipsis  ：用来设置是否使用一个省略标记标示元素内文本的溢出</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">text-overflow</span><span class="value">:ellipsis;</span> </div><div class="line"><span class="attribute">overflow</span><span class="value">:hidden;</span> </div><div class="line"><span class="attribute">white-space</span><span class="value">:nowrap;</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li><p>word-wrap: normal | break-word<br>前者浏览器默认值，表示在控制连续文本换行 后者表示内容将在边界内换行</p>
+</li>
+<li><p>嵌入字体@font-face<br>可以加载服务器端的字体文件<br>用法：</p>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">font-face</span></span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">font-family </span>:<span class="value"> 字体名称</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">src </span>:<span class="value"> 字体文件在服务器上的相对或绝对路径</span></span>;</div><div class="line"><span class="rule">}</span> </div><div class="line"><span class="tag">p</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">font-size </span>:<span class="value"><span class="number">12px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">font-family </span>:<span class="value"> <span class="string">"My Font"</span></span></span>;</div><div class="line">    <span class="comment">/*必须项，设置@font-face中font-family同样的值*/</span></div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li>text-shadow<br>text-shadow: X-Offset Y-Offset blur color;<ul>
+<li>X-Offset：表示阴影的水平偏移距离，其值为正值时阴影向右偏移，反之向左偏移；      </li>
+<li>Y-Offset：是指阴影的垂直偏移距离，如果其值是正值时，阴影向下偏移，反之向上偏移；</li>
+<li>Blur：是指阴影的模糊程度，其值不能是负值，如果值越大，阴影越模糊，反之阴影越清晰，如果不需要阴影模糊可以将Blur值设置为0；</li>
+<li>Color：是指阴影的颜色，其可以使用rgba色。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="背景相关">背景相关</h4>
+<ul>
+<li>background-origin ：设置图品的原始起始位置（背景必须是no-repeat,否则此属性无效）<br>background-origin ： border-box | padding-box | content-box;<br><img src="/img/531003de0001166903660166.jpg" alt="Alt text"></li>
+<li>background-clip: 从何处裁剪图片<br>background-clip ： border-box | padding-box | content-box | no-clip<br><img src="/img/5310065d0001c95103660166.jpg" alt="Alt text"></li>
+<li>background-size: 设置背景图片的大小<br>background-size: auto | &lt;长度值&gt; | &lt;百分比&gt; | cover | contain<ul>
+<li>cover：顾名思义为覆盖，即将背景图片等比缩放以填满整个容器；</li>
+<li>contain：容纳，即将背景图片等比缩放至某一边紧贴容器边缘为止。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/前端开发/">前端开发</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/CSS3/">CSS3</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2015/03/26/CSS布局（二）/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+<section id="comment">
+
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2015/06/02/什么是css3/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2015/06/02/什么是css3/" data-title="css3学习笔记（一）" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"misok"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Android/">Android</a><small>2</small></li>
+  
+    <li><a href="/categories/Hexo/">Hexo</a><small>1</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>3</small></li>
+  
+    <li><a href="/categories/前端开发/">前端开发</a><small>15</small></li>
+  
+    <li><a href="/categories/开源软件/">开源软件</a><small>1</small></li>
+  
+    <li><a href="/categories/摄影/">摄影</a><small>1</small></li>
+  
+    <li><a href="/categories/生活记录/">生活记录</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/CSS/" style="font-size: 20.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/CSS，HTML/" style="font-size: 16.67px;">CSS，HTML</a><a href="/tags/HTML/" style="font-size: 10.00px;">HTML</a><a href="/tags/HTML5/" style="font-size: 10.00px;">HTML5</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/JS/" style="font-size: 20.00px;">JS</a><a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a><a href="/tags/OSS/" style="font-size: 10.00px;">OSS</a><a href="/tags/Python/" style="font-size: 10.00px;">Python</a><a href="/tags/android/" style="font-size: 13.33px;">android</a><a href="/tags/answer/" style="font-size: 10.00px;">answer</a><a href="/tags/codecademy/" style="font-size: 10.00px;">codecademy</a><a href="/tags/jQuery/" style="font-size: 16.67px;">jQuery</a><a href="/tags/life/" style="font-size: 16.67px;">life</a><a href="/tags/mac/" style="font-size: 10.00px;">mac</a><a href="/tags/spider/" style="font-size: 10.00px;">spider</a><a href="/tags/前端开发，-生活记录/" style="font-size: 10.00px;">前端开发， 生活记录</a><a href="/tags/开源软件/" style="font-size: 10.00px;">开源软件</a><a href="/tags/摄影/" style="font-size: 10.00px;">摄影</a><a href="/tags/环境/" style="font-size: 10.00px;">环境</a><a href="/tags/笔记/" style="font-size: 20.00px;">笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://abbeychenxi.net/" title="Abbey in cradle studio">Abbey</a></li>
+<li><a href="http://andrewliu.tk/" title="Andrew Liu">Andrew Liu</a></li>
+<li><a href="http://jas923.tk/" title="Jason Tan">Janson Tan</a></li>
+<li><a href="http://sqing.tk/" title="Su Qing">Su Qing</a></li>
+<li><a href="http://rulerstorm.github.io/" title="Ruler">Ruler</a></li>
+
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Maqianwen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
