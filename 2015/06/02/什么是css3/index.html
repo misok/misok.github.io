@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>css3学习笔记（一） | Misok‘s Blog</title>
+  <title>css3学习笔记 | Misok‘s Blog</title>
   <meta name="author" content="Maqianwen">
   
   <meta name="description" content="爱生活 爱code">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="css3学习笔记（一）"/>
+  <meta property="og:title" content="css3学习笔记"/>
   <meta property="og:site_name" content="Misok‘s Blog"/>
 
   
@@ -56,7 +56,7 @@
       
       
   
-    <h1 class="title">css3学习笔记（一）</h1>
+    <h1 class="title">css3学习笔记</h1>
   
 
     </header>
@@ -94,7 +94,7 @@
 </tbody>
 </table>
 <hr>
-<h4 id="选择器">选择器</h4>
+<h2 id="选择器">选择器</h2>
 <ul>
 <li>属性选择器（在css2的基础上增加了三个属性选择器）<ul>
 <li>E[ att^ = ‘val’ ] :选择匹配元素E，且E元素定义了属性att，且属性值以val开头的任何字符串</li>
@@ -126,7 +126,7 @@
 </li>
 </ul>
 <hr>
-<h4 id="边框相关">边框相关</h4>
+<h2 id="边框相关">边框相关</h2>
 <ul>
 <li>border-radius</li>
 </ul>
@@ -148,7 +148,7 @@
 <li>box-shadow<br>box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式]<br>其中，x,y为必选参数，投影方式省略为外阴影，inset为内阴影<br>可以为一个元素添加多个阴影，用逗号隔开</li>
 </ul>
 <hr>
-<h4 id="颜色">颜色</h4>
+<h2 id="颜色">颜色</h2>
 <ul>
 <li>新增颜色方式<ul>
 <li>rgba(255,255,255,0.5)</li>
@@ -162,7 +162,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">background-image</span><span class="value">:<span class="function">linear-gradient</span>(to left, red, orange,yellow,green,blue,indigo,violet);</span></div></pre></td></tr></table></figure>
 
 <p><img src="/img/54b72c080001611c04230192.jpg" alt="Alt text"></p>
-<h4 id="文字">文字</h4>
+<h2 id="文字">文字</h2>
 <ul>
 <li>text-overflow:clip | ellipsis  ：用来设置是否使用一个省略标记标示元素内文本的溢出</li>
 </ul>
@@ -186,7 +186,7 @@
 </li>
 </ul>
 <hr>
-<h4 id="背景相关">背景相关</h4>
+<h2 id="背景相关">背景相关</h2>
 <ul>
 <li>background-origin ：设置图品的原始起始位置（背景必须是no-repeat,否则此属性无效）<br>background-origin ： border-box | padding-box | content-box;<br><img src="/img/531003de0001166903660166.jpg" alt="Alt text"></li>
 <li>background-clip: 从何处裁剪图片<br>background-clip ： border-box | padding-box | content-box | no-clip<br><img src="/img/5310065d0001c95103660166.jpg" alt="Alt text"></li>
@@ -197,7 +197,7 @@
 </li>
 </ul>
 <hr>
-<h4 id="transformation">transformation</h4>
+<h2 id="transformation">transformation</h2>
 <p>让元素改变形状、大小、位置的效果<br>css3支持2D和3D变换<br>transform属性提供了五种函数来满足我们的需求</p>
 <ul>
 <li>rotate(n) :旋转函数，参数为正负180deg之间,二维</li>
@@ -236,7 +236,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class">.transform-origin</span> <span class="tag">div</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">-webkit-transform-origin</span>:<span class="value"> left top</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">transform-origin</span>:<span class="value"> left top</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
 <hr>
-<h4 id="transition">transition</h4>
+<h2 id="transition">transition</h2>
 <p>平滑的动画效果</p>
 <ul>
 <li>transition-property:指定过渡或动态模拟的CSS属性</li>
@@ -254,7 +254,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">transition</span>:<span class="value"> width <span class="number">2s</span> linear <span class="number">1s</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="tag">div</span><span class="pseudo">:hover</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
 <hr>
-<h4 id="animation">animation</h4>
+<h2 id="animation">animation</h2>
 <p>不断改变元素样式的复杂动画</p>
 <ul>
 <li>animation-delay：动画开始播放的时间</li>
@@ -282,7 +282,7 @@
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> red</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">animation-name</span>:<span class="value"> wobble</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">animation-duration</span>:<span class="value"> <span class="number">4s</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
-<h4 id="多列布局">多列布局</h4>
+<h2 id="多列布局">多列布局</h2>
 <p>columns:轻松实现报纸多列排版</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class">.columns</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">5px</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid green</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">20px</span> auto</span></span>; </div><div class="line">  <span class="rule"><span class="attribute">-webkit-columns</span>:<span class="value"> <span class="number">150px</span> <span class="number">3</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-moz-columns</span>:<span class="value"> <span class="number">150px</span> <span class="number">3</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-o-columns</span>:<span class="value"><span class="number">150px</span> <span class="number">3</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-ms-columns</span>:<span class="value"> <span class="number">150px</span> <span class="number">3</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">columns</span>:<span class="value"> <span class="number">150px</span> <span class="number">3</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
@@ -298,7 +298,7 @@
 </li>
 </ul>
 <hr>
-<h4 id="用户接口">用户接口</h4>
+<h2 id="用户接口">用户接口</h2>
 <ul>
 <li>resize ：规定元素是否能被用户拖动大小，增强用户体验<ul>
 <li>none: 不能拖动</li>
@@ -314,12 +314,12 @@
 <li>outline :外轮廓outline在页面中呈现的效果和边框border呈现的效果极其相似，但和元素边框border完全不同，外轮廓线不占用网页布局空间，不一定是矩形，外轮廓是属于一种动态样式，只有元素获取到焦点或者被激活时呈现。<br>outline: ［outline-color］ || [outline-style] || [outline-width] || [outline-offset] || inherit</li>
 </ul>
 <hr>
-<h4 id="盒模型">盒模型</h4>
+<h2 id="盒模型">盒模型</h2>
 <ul>
 <li>box-sizing: content-box | border-box | inherit<br><img src="/img/5365d98000018fa606460416.jpg" alt="Alt text"></li>
 <li>弹性盒模型 flex</li>
 </ul>
-<h4 id="媒体查询和响应式设计">媒体查询和响应式设计</h4>
+<h2 id="媒体查询和响应式设计">媒体查询和响应式设计</h2>
 <ul>
 <li><p>媒体查询：通过css3来查询媒体，然后调用对应的样式</p>
 <ul>
@@ -423,7 +423,7 @@
       
   
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="2015/06/02/什么是css3/" data-title="css3学习笔记（一）" data-url=""></div>
+  <div class="ds-thread" data-thread-key="2015/06/02/什么是css3/" data-title="css3学习笔记" data-url=""></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
