@@ -196,6 +196,164 @@
 </ul>
 </li>
 </ul>
+<hr>
+<h4 id="transformation">transformation</h4>
+<p>让元素改变形状、大小、位置的效果<br>css3支持2D和3D变换<br>transform属性提供了五种函数来满足我们的需求</p>
+<ul>
+<li>rotate(n) :旋转函数，参数为正负180deg之间,二维</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">rotate</span>(<span class="number">20deg</span>)</span></span>; <span class="comment">/* IE 9 */</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotate</span>(<span class="number">20deg</span>)</span></span>; <span class="comment">/* Safari */</span></div><div class="line">    <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotate</span>(<span class="number">20deg</span>)</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p><img src="/img/transform_rotate.gif" alt="Alt text"></p>
+<ul>
+<li>translate(x,y) |translateX(x) | translateY(y):位移函数，x轴向右为正，y轴向下为正</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">translate</span>(<span class="number">50px</span>,<span class="number">100px</span>)</span></span>; <span class="comment">/* IE 9 */</span></div><div class="line">   	<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translate</span>(<span class="number">50px</span>,<span class="number">100px</span>)</span></span>; <span class="comment">/* Safari */</span></div><div class="line">    <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate</span>(<span class="number">50px</span>,<span class="number">100px</span>)</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p><img src="/img/transform_translate.gif" alt="Alt text"></p>
+<ul>
+<li>scale(x,y) | sacleX(x) | scaleY(y) :缩放函数，参数为倍数</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">scale</span>(<span class="number">2</span>,<span class="number">3</span>)</span></span>; <span class="comment">/* IE 9 */</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">scale</span>(<span class="number">2</span>,<span class="number">3</span>)</span></span>; <span class="comment">/* Safari */</span></div><div class="line">    <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">scale</span>(<span class="number">2</span>,<span class="number">3</span>)</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p><img src="/img/transform_scale.gif" alt="Alt text"></p>
+<ul>
+<li>skew(m,n) | skewX(m) | skewY(n) :扭曲函数，参数为角度。将一个对象以其中心位置围绕着x轴和y轴按照一定角度倾斜</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span><span class="rules">{</span></div><div class="line"><span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">skew</span>(<span class="number">45deg</span>)</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"><span class="function">skew</span>(<span class="number">45deg</span>) </span></span></div><div class="line">  transform:<span class="function">skew</span>(<span class="number">45deg</span>);</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p> <img src="/img/5339140b0001259804140145.jpg" alt="Alt text"></p>
+<ul>
+<li>matrix(a,b,c,d,e,f) : 矩阵变换（包含了上述几种效果）</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">matrix</span>(<span class="number">1</span>, -<span class="number">0.3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)</span></span>; <span class="comment">/* IE 9 */</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">matrix</span>(<span class="number">1</span>, -<span class="number">0.3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)</span></span>; <span class="comment">/* Safari */</span></div><div class="line">    <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">matrix</span>(<span class="number">1</span>, -<span class="number">0.3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p><img src="/img/transform_rotate.gif" alt="Alt text"></p>
+<p>以上这些方法讲的都是2D变换，他们还有对应的3D变换。<br>参见 <a href="http://www.w3schools.com/css/css3_3dtransforms.asp" target="_blank" rel="external">css3transform3D变换</a></p>
+<ul>
+<li>transform-origin<br>任何一个元素都有默认中心点，位于元素中心，可使用此属性改变。那么以上操作都会以新的中心点来变换</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class">.transform-origin</span> <span class="tag">div</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">-webkit-transform-origin</span>:<span class="value"> left top</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">transform-origin</span>:<span class="value"> left top</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="transition">transition</h4>
+<p>平滑的动画效果</p>
+<ul>
+<li>transition-property:指定过渡或动态模拟的CSS属性</li>
+<li>transition-duration:指定完成过渡所需的时间</li>
+<li>transition-timing-function:指定过渡函数<ul>
+<li>ease :由快到慢，逐渐变慢</li>
+<li>liner ：恒速过度</li>
+<li>ease-in：加速过度</li>
+<li>ease-out：减速过渡</li>
+<li>ease-in-out：先加速再减速</li>
+</ul>
+</li>
+<li>transition-delay:指定开始出现的延迟时间</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">transition</span>:<span class="value"> width <span class="number">2s</span> linear <span class="number">1s</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="tag">div</span><span class="pseudo">:hover</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="animation">animation</h4>
+<p>不断改变元素样式的复杂动画</p>
+<ul>
+<li>animation-delay：动画开始播放的时间</li>
+<li>animation-direction    ：播放方向 （normal alternate：偶数向前播放，奇数向后播放）</li>
+<li>animation-duration：动画播放持续时间</li>
+<li>animation-fill-mode    ：动画开始之前和结束之后发生的操作<ul>
+<li>none:默认值，表示动画将按预期进行和结束，在动画完成其最后一帧时，动画会反转到初始帧处</li>
+<li>forwards:表示动画在结束后继续应用最后的关键帧的位置</li>
+<li>backwards:会在向元素应用动画样式时迅速应用动画的初始帧</li>
+<li>both:元素动画同时具有forwards和backwards效果</li>
+</ul>
+</li>
+<li>animation-iteration-count     :动画播放次数（1|整数|infinite）</li>
+<li>animation-name :执行由 @keyframes函数定义的动画行为<ul>
+<li>Keyframes被称为关键帧，其类似于Flash中的关键帧。在CSS3中其主要以“@keyframes”开头，后面紧跟着是动画名称加上一对花括号“{…}”，括号中就是一些不同时间段样式规则。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">keyframes</span> wobble </span>{</div><div class="line">  0% <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">100px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value">green</span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">  40% <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">150px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value">orange</span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">  60% <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">75px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">  100% <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">100px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+<ul>
+<li>animation-play-state    : 播放状态（running|paused）</li>
+<li>animation-timing-function：播放函数（同transition中的函数）</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> red</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">animation-name</span>:<span class="value"> wobble</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">animation-duration</span>:<span class="value"> <span class="number">4s</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<h4 id="多列布局">多列布局</h4>
+<p>columns:轻松实现报纸多列排版</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class">.columns</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">5px</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid green</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">20px</span> auto</span></span>; </div><div class="line">  <span class="rule"><span class="attribute">-webkit-columns</span>:<span class="value"> <span class="number">150px</span> <span class="number">3</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-moz-columns</span>:<span class="value"> <span class="number">150px</span> <span class="number">3</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-o-columns</span>:<span class="value"><span class="number">150px</span> <span class="number">3</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-ms-columns</span>:<span class="value"> <span class="number">150px</span> <span class="number">3</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">columns</span>:<span class="value"> <span class="number">150px</span> <span class="number">3</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p><img src="/img/5360c4c70001336f04870257.jpg" alt="Alt text"></p>
+<ul>
+<li>column属性<ul>
+<li>width：列宽</li>
+<li>count：列数</li>
+<li>gap：列间距</li>
+<li>rule：列与列的边框宽度</li>
+<li>span：跨列显示（all | none）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="用户接口">用户接口</h4>
+<ul>
+<li>resize ：规定元素是否能被用户拖动大小，增强用户体验<ul>
+<li>none: 不能拖动</li>
+<li>both：拖动元素在水平和垂直方向同时变化</li>
+<li>vertical： 仅垂直方向</li>
+<li>horizontal：仅水平方向</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">textarea</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">-webkit-resize</span>:<span class="value"> horizontal</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-moz-resize</span>:<span class="value"> horizontal</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-o-resize</span>:<span class="value"> horizontal</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-ms-resize</span>:<span class="value"> horizontal</span></span>;</div><div class="line">  <span class="rule"><span class="attribute">resize</span>:<span class="value"> horizontal</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li>outline :外轮廓outline在页面中呈现的效果和边框border呈现的效果极其相似，但和元素边框border完全不同，外轮廓线不占用网页布局空间，不一定是矩形，外轮廓是属于一种动态样式，只有元素获取到焦点或者被激活时呈现。<br>outline: ［outline-color］ || [outline-style] || [outline-width] || [outline-offset] || inherit</li>
+</ul>
+<hr>
+<h4 id="盒模型">盒模型</h4>
+<ul>
+<li>box-sizing: content-box | border-box | inherit<br><img src="/img/5365d98000018fa606460416.jpg" alt="Alt text"></li>
+<li>弹性盒模型 flex</li>
+</ul>
+<h4 id="媒体查询和响应式设计">媒体查询和响应式设计</h4>
+<ul>
+<li><p>媒体查询：通过css3来查询媒体，然后调用对应的样式</p>
+<ul>
+<li>引入方式：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>. <span class="keyword">link</span>方法</div><div class="line"><span class="keyword">link</span>方法引入媒体类型其实就是在&lt;<span class="keyword">link</span>&gt;标签引用样式的时候，通过<span class="keyword">link</span>标签中的media属性来指定不同的媒体类型。如下所示。</div><div class="line">&lt;<span class="keyword">link</span> rel=<span class="string">"stylesheet"</span> type=<span class="string">"text/css"</span> href=<span class="string">"style.css"</span> media=<span class="string">"screen"</span> /&gt;</div><div class="line">&lt;<span class="keyword">link</span> rel=<span class="string">"stylesheet"</span> type=<span class="string">"text/css"</span> href=<span class="string">"print.css"</span> media=<span class="string">"print"</span> /&gt;</div><div class="line"></div><div class="line"><span class="number">2</span>. <span class="variable">@import</span>方法</div><div class="line"><span class="variable">@import</span>可以引用样式文件，同样也可以用来引用媒体类型。</div><div class="line"></div><div class="line"><span class="variable">@importurl</span>(<span class="keyword">reset</span>.css) screen;   </div><div class="line"><span class="variable">@importurl</span>(<span class="keyword">print</span>.css) <span class="keyword">print</span>;</div><div class="line"></div><div class="line"><span class="number">3</span>. <span class="variable">@media</span>方法</div><div class="line"><span class="variable">@media</span>是CSS3中新引进的一个特性，被称为媒体查询。在页面中也可以通过这个属性来引入媒体类型。<span class="variable">@media</span>引入媒体类型和<span class="variable">@import</span>有点类似也具有两方式。</div><div class="line">（<span class="number">1</span>）在样式文件中引用媒体类型：</div><div class="line"><span class="variable">@media</span> screen {</div><div class="line">   选择器{<span class="regexp">/*你的样式代码写在这里…*/</span>}</div><div class="line">}</div><div class="line">&lt;<span class="regexp">/style&gt;</span></div><div class="line">&lt;/head&gt;</div></pre></td></tr></table></figure>
+
+<ul>
+<li>@media 媒体类型   and （媒体特性）{你的样式}</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> screen and (min-width:<span class="number">900px</span>)</span>{</div><div class="line"><span class="class">.wrapper</span><span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">980px</span></span></span>;<span class="rule">}</span></span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<ul>
+<li>响应式设计RWD<br>是提供各种设备都能浏览网页的一种设计方法，RWD能让你的网页在不同的设备中展现不同的设计风格。<ul>
+<li>设置viewport</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta <span class="variable">name=</span><span class="string">"viewport"</span> <span class="variable">content=</span><span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</div></pre></td></tr></table></figure>
+
+<p>  <img src="/img/53660f2c0001190005270386.jpg" alt="Alt text"></p>
+<ul>
+<li>弹性图片 img {max-width:100%;}</li>
+<li>设置断点：设备宽度的临界点。在Media Queries中，其中媒体特性“min-width”和“max-width”对应的属性值就是响应式设计中的断点值</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* For mobile phones: */</span></div><div class="line"><span class="attr_selector">[class*="col-"]</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="at_rule">@<span class="keyword">media</span> only screen and (min-width: <span class="number">768px</span>) </span>{</div><div class="line">    <span class="comment">/* For desktop: */</span></div><div class="line">    <span class="class">.col-1</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">8.33%</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.col-2</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">16.66%</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.col-3</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">25%</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.col-4</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">33.33%</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.col-5</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">41.66%</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.col-6</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">50%</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.col-7</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">58.33%</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.col-8</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">66.66%</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.col-9</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">75%</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.col-10</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">83.33%</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.col-11</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">91.66%</span></span></span>;<span class="rule">}</span></span></div><div class="line">    <span class="class">.col-12</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;<span class="rule">}</span></span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<ul>
+<li>屏幕分辨率</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.1024</span>px显屏</div><div class="line">@media screen <span class="operator">and</span> (<span class="built_in">max</span>-width : <span class="number">1024</span>px) {                    </div><div class="line"><span class="comment">/* 样式写在这里 */</span>          </div><div class="line">}     </div><div class="line"><span class="number">2.800</span>px显屏</div><div class="line">@media screen <span class="operator">and</span> (<span class="built_in">max</span>-width : <span class="number">800</span>px) {              </div><div class="line"><span class="comment">/* 样式写在这里 */</span>          </div><div class="line">}     </div><div class="line"><span class="number">3.640</span>px显屏</div><div class="line">@media screen <span class="operator">and</span> (<span class="built_in">max</span>-width : <span class="number">640</span>px) {              </div><div class="line"><span class="comment">/* 样式写在这*/</span>            </div><div class="line">}     </div><div class="line"><span class="number">4.</span>iPad横板显屏</div><div class="line">@media screen <span class="operator">and</span> (<span class="built_in">max</span>-device-width: <span class="number">1024</span>px) <span class="operator">and</span> (orientation: landscape) {              </div><div class="line"><span class="comment">/* 样式写在这 */</span>            </div><div class="line">}     </div><div class="line"><span class="number">5.</span>iPad竖板显屏</div><div class="line">@media screen <span class="operator">and</span> (<span class="built_in">max</span>-device-width: <span class="number">768</span>px) <span class="operator">and</span> (orientation: portrait) {         </div><div class="line"><span class="comment">/* 样式写在这 */</span>            </div><div class="line">}     </div><div class="line"><span class="number">6.</span>iPhone 和 Smartphones</div><div class="line">@media screen <span class="operator">and</span> (<span class="built_in">min</span>-device-width: <span class="number">320</span>px) <span class="operator">and</span> (<span class="built_in">min</span>-device-width: <span class="number">480</span>px) {              </div><div class="line"><span class="comment">/* 样式写在这 */</span>            </div><div class="line">}</div></pre></td></tr></table></figure>
+
 
       
     </div>
